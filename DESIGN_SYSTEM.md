@@ -1,12 +1,13 @@
 # GRWAI — Design System
 
-**Version 1.3 · Single source of truth for Get Ready with AI**
+**Version 1.4 · Single source of truth for Get Ready with AI**
 
 This file defines every visual and interaction primitive used in the app. If a value is not in this file, it does not exist in the product. When in doubt, restraint wins.
 
 **Reference DNA:** Airbnb's spatial generosity and component clarity, fused with the editorial voice of a print magazine (Kinfolk, The Gentlewoman, Cereal). Soft, confident, quiet.
 
 **Changelog:**
+- `v1.4` — Saved tab replaces Stylist (Stylist now reached via IrisFAB, not tab nav). Avatar initials use Inter Medium upright at all sizes (Playfair was rendering with awkward slant on iOS). Emoji rendering in chips uses lineHeight 18 not 1 (top-clipping fix). Tab bar Heart icon stays stroke-only — never rust-filled — preserving rust as the unique signal for the SaveButton action. New IrisFAB component (§7.12.1) introduces a fixed bottom-right floating button as the entry point for the Iris stylist.
 - `v1.3` — Dual-icon rule: emoji for occasion/condition chips (events, weather), Lucide for actions/navigation. Variation selector required on emoji.
 - `v1.2` — Anti-overlap recipe for chips/buttons. Avatar component fully spec'd at 5 sizes with photo, initials, status dot, counter variants. Layout rules for avatar in flex containers.
 - `v1.1` — Save heart uses rust accent (no raspberry, no burst dots, first-save-only haptic). Tab labels in sentence case. Italic emphasis discretionary. Rust accent restricted to three uses. Tertiary text bumped to AA-compliant `#8A8A8A`. Inline scene aspect changed to 3:4. Empty state pattern with per-tab copy. Outline pills use `ink/primary`. Compact mode for ≤375px devices. Time labels limited to two pieces of meta.
@@ -83,6 +84,8 @@ Border
   3. The filled state of the save heart (see 7.13)
   
   Rust does NOT appear on: generic chips, outline pill borders, "FASTEST" badges, "AI-curated" pills, weather chips, button outlines, generic icons. By appearing in fewer places, rust earns the meaning it carries. When in doubt → use ink/primary.
+
+  The Saved tab in the bottom navigation uses a Lucide Heart icon in stroke-only form. This tab Heart NEVER fills with rust regardless of state — it follows the same ink/primary (active) / ink/tertiary (inactive) treatment as all other tab icons. Rust is reserved exclusively for the SaveButton component on individual outfits/pieces, where it signals "this specific item is saved." Two hearts, two meanings: navigation (stroke-only) vs. action (rust-filled).
 - Photography is its own palette. Don't try to harmonize the UI with skin tones, garment colors, or scene lighting — let the chrome stay neutral and let the image breathe.
 
 ### 2.3 Photo overlay tints
@@ -294,11 +297,12 @@ Navigation
 
 Tabs
   sun (Today), calendar (Events), shirt (Closet), 
-  message-circle (Stylist), user-circle (You)
+  heart (Saved), user-circle (You)
 
 Actions
   camera, image, paperclip, mic, send, share,
   heart (canonical save icon — see 7.13), 
+  message-circle (FAB — opens Iris chat),
   refresh-ccw, edit-3, trash-2, plus, search, filter, sliders-horizontal
 
 Metadata
@@ -409,8 +413,13 @@ Icon size by container:
 
 When using emoji inside a chip, wrap in <span> with:
   font-size:    14px
-  line-height:  1
+  line-height:  18px (NOT 1 — emoji glyphs render ~2-3px above the text baseline on iOS; lineHeight 1 clips the top)
   flex-shrink:  0
+  textAlignVertical: 'center' (Android consistency)
+  includeFontPadding: false (Android padding bug fix)
+  marginTop:    -1px (optional, for optical centering — Apple emoji sit slightly below the text baseline at 14px)
+
+Note: Lucide SVG icons and Latin text continue to use lineHeight: 1 — only emoji need the headroom override. Also bump the chip's md size minHeight from 36px to 38px to absorb the extra emoji height.
 ```
 
 This guarantees consistent rendering across iOS, Android, and web. If a chip ever shows misaligned content, this recipe is the fix every time.
@@ -503,7 +512,7 @@ Active item
   Icon:         24px ink/primary stroke (filled variant if available)
   Label:        label/sm ink/primary, weight 500 (sentence case)
   
-Labels are sentence case: "Today", "Events", "Closet", "Stylist", "You".
+Labels are sentence case: "Today", "Events", "Closet", "Saved", "You".
 NEVER all caps — caps tab labels are a discoverability anti-pattern in 2026.
 The weight change between 400 and 500 carries the active state.
 No background pill, no underline.
@@ -522,9 +531,13 @@ Border:         optional 2px bg/primary (for stacked avatars)
 
 **Initials fallback** (when no photo available):
 ```
-Sizes xs/sm:    label/sm Inter Medium 500, ink/primary, centered
-Sizes md:       label/md Inter Medium 500, ink/primary, centered
-Sizes lg/xl:    Playfair Regular 18px (lg) / 32px (xl), ink/primary, centered
+Sizes xs (24px): Inter Medium 500, fontSize 11px, ink/primary, centered
+Sizes sm (32px): Inter Medium 500, fontSize 13px, ink/primary, centered
+Sizes md (40px): Inter Medium 500, fontSize 15px, ink/primary, centered
+Sizes lg (56px): Inter Medium 500, fontSize 20px, ink/primary, centered
+Sizes xl (96px): Inter Medium 500, fontSize 32px, ink/primary, centered
+
+All sizes use Inter Medium upright — never Playfair, never italic. Playfair italic is reserved for the Iris avatar specifically, where it functions as a brand mark for the AI stylist and is distinct from generic user initials.
 ```
 
 For Iris (the AI stylist), the avatar always uses a black bg with a white italic Playfair "I" — this is part of the brand. Iris also always shows the live status dot.
@@ -641,6 +654,82 @@ Shadow:         elevation/2
 Icon:           24px (md) or 20px (sm), centered
 Border:         3px bg/primary if floating on photo (visual lift)
 ```
+
+### 7.12.1 IrisFAB (Iris stylist entry point)
+
+The single, canonical entry point for the Iris AI stylist now that Stylist is no longer a bottom-tab destination. Always present, always reachable, never moves.
+
+**Component:** `<IrisFAB />`
+
+**Visual:**
+```
+Container size:    56px circle
+Container bg:      ink/primary
+Icon:              Lucide MessageCircle, 24px, ink/inverse stroke, strokeWidth 1.75
+Border:            none
+Shadow:            elevation/2 (per §5.2)
+Radius:            radius/full
+```
+
+**Position:**
+```
+Anchor:            fixed (sticky during scroll, never moves with content)
+Bottom offset:     88px from screen bottom (24px above the 64px tab bar)
+Right offset:      16px from right edge
+Z-index:           above all screen content, below modals and sheets
+Safe area:         honors bottom safe-area inset on devices with home indicator
+```
+
+**Visibility rules (critical):**
+```
+VISIBLE on:        Today, Events, Closet, Saved, You — every tab screen
+HIDDEN on:         Stylist chat screen itself (it's redundant when you're already there)
+HIDDEN on:         Onboarding flows (face capture, body capture, photo upload, processing)
+HIDDEN on:         Try-On Mode full-screen panel (preserves immersion)
+HIDDEN on:         Any modal or full-screen sheet that's currently open
+```
+
+**Tap behavior:**
+```
+On press:          Scale to 0.95 for 100ms (per §9.2 standard easing)
+After press:       Navigate to /stylist as a regular page (push, slide-from-right
+                   transition over 320ms with easing/decelerate per §9.1)
+```
+
+**Stylist chat screen (the destination):**
+```
+Header:            Standard screen header per §8.1
+                   Leading: NO back chevron (use X instead)
+                   Trailing: Lucide X icon, 24px, ink/primary, in a 36×36 circular
+                             ghost button
+Header title:      Centered "Iris" in display/xs, ink/primary
+                   Subtitle below in caps/sm ink/secondary: "STYLIST · LIVE"
+                   with green status dot before "LIVE"
+On X tap:          Pop the navigation stack, slide-out-to-right over 280ms, return
+                   to whichever tab the user was on when they tapped the FAB
+```
+
+**Why MessageCircle and not Sparkles:**
+
+The MessageCircle icon was chosen over Sparkles to keep the metaphor literal — Iris is a chat surface, not generic "AI magic." The Iris brand mark (italic Playfair "I" on black) carries the AI/sophistication signaling; the FAB's job is to read clearly as "tap to talk." Sparkles would compete with the Iris avatar for the same brand space.
+
+**Accessibility:**
+```
+accessibilityLabel:    "Ask Iris"
+accessibilityRole:     "button"
+accessibilityHint:     "Opens chat with your AI stylist"
+```
+
+**Animation when first appearing on a screen (after tab switch):**
+```
+Initial state:     opacity 0, scale 0.9
+Final state:       opacity 1, scale 1.0
+Duration:          200ms standard easing (per §9.1)
+Trigger:           on screen mount, after a 50ms delay (lets the tab transition
+                   settle first)
+```
+
+This entrance animation is subtle — the FAB shouldn't draw attention, just appear with the screen.
 
 ### 7.13 Save Action (heart toggle)
 
@@ -1136,4 +1225,4 @@ Build the components first (`/components/`), the theme second (`/constants/theme
 
 ---
 
-*End of design system. Last updated for v1.3.*
+*End of design system. Last updated for v1.4.*

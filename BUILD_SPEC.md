@@ -1,6 +1,6 @@
 # GRWAI — Build Specification
 
-**Companion to `DESIGN_SYSTEM.md` v1.3 · Read both together**
+**Companion to `DESIGN_SYSTEM.md` v1.4 · Read both together**
 
 This file describes every screen, flow, and integration in the Get Ready with AI (GRWAI) app. `DESIGN_SYSTEM.md` defines the visual primitives (color, type, spacing, components); this file describes how those primitives compose into screens.
 
@@ -33,8 +33,9 @@ grwai/
 │   │   ├── index.tsx             # Today
 │   │   ├── events.tsx            # Events
 │   │   ├── closet.tsx            # Closet
-│   │   ├── stylist.tsx           # Stylist
+│   │   ├── saved.tsx             # Saved
 │   │   └── you.tsx               # You/Profile
+│   ├── stylist.tsx               # Iris chat (reached via IrisFAB, not tab nav)
 │   ├── onboarding/
 │   │   ├── intro.tsx             # "Two photos. One sharp you."
 │   │   ├── face.tsx              # Face photo capture
@@ -76,11 +77,11 @@ Wrap root layout in a font-loaded splash gate to prevent flash of unstyled text.
 
 ### 3.2 Tab navigator
 
-5 tabs in this order: **Today · Events · Closet · Stylist · You**
+5 tabs in this order: **Today · Events · Closet · Saved · You**
 
 Per `DESIGN_SYSTEM.md` §7.6:
 - Sentence case labels (NOT all caps)
-- Lucide icons: sun, calendar, shirt, message-circle, user-circle
+- Lucide icons: sun, calendar, shirt, heart (stroke-only — never rust-filled, see §2.2), user-circle
 - Active: `ink/primary` icon stroke + `label/sm` Medium 500
 - Inactive: `ink/tertiary` (#8A8A8A) + Regular 400
 - 64px height + safe area, 1px top border, no background pill
@@ -281,7 +282,9 @@ Tapping Card 2 opens the manual event form:
 
 ## 6. Screen 3 — Stylist (Iris chat)
 
-**Route:** `/(tabs)/stylist`
+*(Iris stylist — reached via IrisFAB, NOT tab navigation. The FAB is fixed bottom-right on every tab screen and pushes the user into this chat page. See DESIGN_SYSTEM.md §7.12.1 for the IrisFAB component spec.)*
+
+**Route:** `/stylist`
 
 This is the conversational AI screen — feels like Messages, but with rich outfit cards instead of text.
 
@@ -677,11 +680,12 @@ Work in chunks. Stop and review on phone after each.
 1. **Foundation:** scaffold, theme.ts, fonts loaded, tab navigator working
 2. **Components:** all 17 components above, `_design-test.tsx` for visual QA
 3. **Today screen** with mock data, illustrations only
-4. **Events + Stylist screens** including Add Event flow
+4. **Events + Saved screens** including Add Event flow (Stylist destination screen also built here as `/stylist`, but it lives outside the tab group)
 5. **Closet + You screens** with avatar and figure card
-6. **Photo onboarding** (face + body capture, processing screen)
-7. **SceneView + try-on mode** with mock sceneGen service and sample scenes
-8. **Polish:** SaveButton wired everywhere, empty states, compact mode
+6. **IrisFAB:** Build IrisFAB component (per DESIGN_SYSTEM.md §7.12.1) and wire it into the tab layout shell. The component is sticky bottom-right above the tab bar, navigates to the existing /stylist screen on tap.
+7. **Photo onboarding** (face + body capture, processing screen)
+8. **SceneView + try-on mode** with mock sceneGen service and sample scenes
+9. **Polish:** SaveButton wired everywhere, empty states, compact mode
 
 ---
 
