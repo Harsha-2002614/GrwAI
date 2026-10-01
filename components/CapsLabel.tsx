@@ -17,7 +17,7 @@ interface CapsLabelProps {
 const toneColor: Record<CapsTone, string> = {
   secondary: theme.color.ink.secondary,
   primary: theme.color.ink.primary,
-  rust: theme.color.accent.rust,
+  rust: theme.color.accent.rustDeep, // v1.8: rust #C75D3A is 4.15:1 on white — too low for 11–12px caps
   inverse: theme.color.ink.inverse,
   tertiary: theme.color.ink.tertiary,
 };

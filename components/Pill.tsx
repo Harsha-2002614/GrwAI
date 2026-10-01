@@ -59,6 +59,9 @@ export function Pill({
       disabled={disabled}
       accessibilityRole={onPress ? 'button' : undefined}
       accessibilityState={onPress ? { selected: !!active, disabled: !!disabled } : undefined}
+      // react-native-web 0.21 does not map accessibilityState.selected → aria-selected;
+      // the explicit prop reaches the DOM on web and is a no-op duplicate on native.
+      aria-selected={onPress ? !!active : undefined}
       style={({ pressed }) => [
         styles.base,
         {
@@ -79,7 +82,7 @@ export function Pill({
           <Leading
             size={theme.inlineIcon.size.chip}
             color={colors.text}
-            strokeWidth={1.75}
+            strokeWidth={2}
           />
         )}
         {emoji && <Text style={styles.emoji}>{emoji}</Text>}

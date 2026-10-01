@@ -1,0 +1,23 @@
+{
+  "name": "product-qa-agent",
+  "version": "0.1.0",
+  "description": "Autonomous product-implementation QA agent: runs a web app, explores every route, drives user journeys, measures design-token conformance, responsiveness and accessibility, then uses an (open-source) LLM to explain, rank and report — with optional fix experiments.",
+  "license": "MIT",
+  "private": false,
+  "type": "commonjs",
+  "bin": { "qa-agent": "bin/qa-agent.js" },
+  "engines": { "node": ">=18" },
+  "scripts": {
+    "start": "node bin/qa-agent.js all",
+    "explore": "node bin/qa-agent.js explore",
+    "journeys": "node bin/qa-agent.js journeys",
+    "responsive": "node bin/qa-agent.js responsive",
+    "analyze": "node bin/qa-agent.js analyze",
+    "report": "node bin/qa-agent.js report",
+    "postinstall": "npx playwright install chromium || true"
+  },
+  "dependencies": {
+    "axe-core": "^4.10.0",
+    "playwright": "^1.50.0"
+  }
+}

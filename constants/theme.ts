@@ -20,7 +20,7 @@ export const color = {
   ink: {
     primary: '#0F0F0F',
     secondary: '#6B6B6B',
-    tertiary: '#8A8A8A', // v1.1: bumped from #9B9B9B for WCAG AA (4.5:1)
+    tertiary: '#767676', // v1.8: #8A8A8A measured 3.45:1 on white — #767676 is 4.54:1 (WCAG AA)
     inverse: '#FFFFFF',
   },
   accent: {

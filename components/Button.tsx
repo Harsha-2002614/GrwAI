@@ -23,6 +23,9 @@ interface ButtonProps extends Omit<PressableProps, 'style' | 'children'> {
   size?: Size;
   leadingIcon?: ComponentType<IconProps>;
   trailingIcon?: ComponentType<IconProps>;
+  /** Override default stroke (1.75). Bump to 2 for intricate glyphs like
+   *  Sparkles whose inner detail reads thin at chip/button size. */
+  iconStrokeWidth?: number;
   fullWidth?: boolean;
   loading?: boolean;
   style?: StyleProp<ViewStyle>;
@@ -41,6 +44,7 @@ export function Button({
   size = 'md',
   leadingIcon: Leading,
   trailingIcon: Trailing,
+  iconStrokeWidth = 1.75,
   fullWidth,
   disabled,
   loading,
@@ -77,7 +81,7 @@ export function Button({
             <Leading
               size={s.iconSize}
               color={textColor(variant, isDisabled)}
-              strokeWidth={1.75}
+              strokeWidth={iconStrokeWidth}
             />
           )}
           <Text
@@ -99,7 +103,7 @@ export function Button({
             <Trailing
               size={s.iconSize}
               color={textColor(variant, isDisabled)}
-              strokeWidth={1.75}
+              strokeWidth={iconStrokeWidth}
             />
           )}
         </View>

@@ -1,0 +1,22 @@
+# Copy to  .github/workflows/qa-agent.yml  in the app repo to run the agent on every PR (deterministic mode, no LLM).
+name: product-qa-agent
+on: [pull_request, workflow_dispatch]
+jobs:
+  qa:
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 20, cache: npm }
+      - run: npm ci
+      - run: cp qa-agent/patches/01-babel.config.js babel.config.js   # web needs the import.meta polyfill (see GRW-01)
+      - run: cd qa-agent && npm ci && npx playwright install --with-deps chromium
+      - run: cd qa-agent && node bin/qa-agent.js all --provider none --run ci-${{ github.run_number }}
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: qa-report
+          path: qa-agent/runs/ci-${{ github.run_number }}/
+      # Optional: fail the job when a journey assertion fails
+      - run: node -e "const j=require('./qa-agent/runs/ci-${{ github.run_number }}/journeys.json'); const f=j.filter(x=>x.result==='FAIL'); console.log(f.length+' failing journey checks'); process.exit(f.length>0?1:0)"

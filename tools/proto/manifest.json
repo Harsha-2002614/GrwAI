@@ -1,0 +1,4858 @@
+[
+ {
+  "id": "ob-welcome",
+  "group": "Onboarding",
+  "title": "Welcome",
+  "route": "/onboarding/welcome",
+  "path": "/onboarding/welcome",
+  "file": "screens/ob-welcome.png",
+  "links": {
+   "Get started": "ob-account"
+  },
+  "targets": [
+   {
+    "role": "button",
+    "label": "Get started",
+    "w": 342,
+    "h": 56,
+    "x": 24,
+    "y": 704,
+    "visible": true,
+    "disabled": false
+   },
+   {
+    "role": "button",
+    "label": "I already have an account",
+    "w": 171,
+    "h": 48,
+    "x": 110,
+    "y": 772,
+    "visible": true,
+    "disabled": false
+   }
+  ],
+  "errors": 0
+ },
+ {
+  "id": "ob-account",
+  "group": "Onboarding",
+  "title": "Create account",
+  "route": "/onboarding/account",
+  "path": "/onboarding/account",
+  "file": "screens/ob-account.png",
+  "links": {
+   "Create account": "ob-name",
+   "Back": "ob-welcome",
+   "Skip onboarding": "today-1"
+  },
+  "targets": [
+   {
+    "role": "button",
+    "label": "Back",
+    "w": 44,
+    "h": 44,
+    "x": 14,
+    "y": 6,
+    "visible": true,
+    "disabled": false
+   },
+   {
+    "role": "button",
+    "label": "Skip onboarding",
+    "w": 45,
+    "h": 44,
+    "x": 329,
+    "y": 6,
+    "visible": true,
+    "disabled": false
+   },
+   {
+    "role": "button",
+    "label": "Continue with Apple",
+    "w": 342,
+    "h": 48,
+    "x": 24,
+    "y": 166,
+    "visible": true,
+    "disabled": false
+   },
+   {
+    "role": "button",
+    "label": "Continue with Google",
+    "w": 342,
+    "h": 48,
+    "x": 24,
+    "y": 226,
+    "visible": true,
+    "disabled": false
+   },
+   {
+    "role": "input",
+    "label": "you@example.com",
+    "w": 312,
+    "h": 19,
+    "x": 39,
+    "y": 375,
+    "visible": true,
+    "disabled": false
+   },
+   {
+    "role": "input",
+    "label": "8 or more characters",
+    "w": 280,
+    "h": 19,
+    "x": 39,
+    "y": 465,
+    "visible": true,
+    "disabled": false
+   },
+   {
+    "role": "button",
+    "label": "Show password",
+    "w": 32,
+    "h": 32,
+    "x": 319,
+    "y": 458,
+    "visible": true,
+    "disabled": false
+   },
+   {
+    "role": "input",
+    "label": "8 or more characters",
+    "w": 280,
+    "h": 19,
+    "x": 39,
+    "y": 555,
+    "visible": true,
+    "disabled": false
+   },
+   {
+    "role": "button",
+    "label": "Show password",
+    "w": 32,
+    "h": 32,
+    "x": 319,
+    "y": 548,
+    "visible": true,
+    "disabled": false
+   },
+   {
+    "role": "button",
+    "label": "Create account",
+    "w": 342,
+    "h": 56,
+    "x": 24,
+    "y": 764,
+    "visible": true,
+    "disabled": false
+   }
+  ],
+  "errors": 0
+ },
+ {
+  "id": "ob-name",
+  "group": "Onboarding",
+  "title": "Name & identity",
+  "route": "/onboarding/name",
+  "path": "/onboarding/name",
+  "file": "screens/ob-name.png",
+  "links": {
+   "Continue": "ob-face-intro",
+   "Back": "ob-account",
+   "Skip onboarding": "today-1"
+  },
+  "targets": [
+   {
+    "role": "button",
+    "label": "Back",
+    "w": 44,
+    "h": 44,
+    "x": 14,
+    "y": 6,
+    "visible": true,
+    "disabled": false
+   },
+   {
+    "role": "button",
+    "label": "Skip onboarding",
+    "w": 45,
+    "h": 44,
+    "x": 329,
+    "y": 6,
+    "visible": true,
+    "disabled": false
+   },
+   {
+    "role": "input",
+    "label": "Your name",
+    "w": 342,
+    "h": 52,
+    "x": 24,
+    "y": 226,
+    "visible": true,
+    "disabled": false
+   },
+   {
+    "role": "button",
+    "label": "Woman",
+    "w": 81,
+    "h": 38,
+    "x": 24,
+    "y": 353,
+    "visible": true,
+    "disabled": false
+   },
+   {
+    "role": "button",
+    "label": "Man",
+    "w": 63,
+    "h": 38,
+    "x": 113,
+    "y": 353,
+    "visible": true,
+    "disabled": false
+   },
+   {
+    "role": "button",
+    "label": "Non-binary",
+    "w": 109,
+    "h": 38,
+    "x": 184,
+    "y": 353,
+    "visible": true,
+    "disabled": false
+   },
+   {
+    "role": "button",
+    "label": "Self-describe",
+    "w": 125,
+    "h": 38,
+    "x": 24,
+    "y": 399,
+    "visible": true,
+    "disabled": false
+   },
+   {
+    "role": "button",
+    "label": "Prefer not to say",
+    "w": 144,
+    "h": 38,
+    "x": 157,
+    "y": 399,
+    "visible": true,
+    "disabled": false
+   },
+   {
+    "role": "button",
+    "label": "Hijab / modest",
+    "w": 130,
+    "h": 38,
+    "x": 24,
+    "y": 509,
+    "visible": true,
+    "disabled": false
+   },
+   {
+    "role": "button",
+    "label": "Saree",
+    "w": 72,
+    "h": 38,
+    "x": 162,
+    "y": 509,
+    "visible": true,
+    "disabled": false
+   },
+   {
+    "role": "button",
+    "label": "Seated / wheelchair fit",
+    "w": 185,
+    "h": 38,
+    "x": 24,
+    "y": 555,
+    "visible": true,
+    "disabled": false
+   },
+   {
+    "role": "button",
+    "label": "One-handed dressing",
+    "w": 180,
+    "h": 38,
+    "x": 24,
+    "y": 601,
+    "visible": true,
+    "disabled": false
+   },
+   {
+    "role": "button",
+    "label": "Sensory-friendly",
+    "w": 144,
+    "h": 38,
+    "x": 212,
+    "y": 601,
+    "visible": true,
+    "disabled": false
+   },
+   {
+    "role": "button",
+    "label": "Continue",
+    "w": 342,
+    "h": 56,
+    "x": 24,
+    "y": 764,
+    "visible": true,
+    "disabled": false
+   }
+  ],
+  "errors": 0
+ },
+ {
+  "id": "ob-face-intro",
+  "group": "Onboarding",
+  "title": "Face photo intro",
+  "route": "/onboarding/face-intro",
+  "path": "/onboarding/face-intro",
+  "file": "screens/ob-face-intro.png",
+  "links": {
+   "Take face photo": "ob-face-capture",
+   "Skip for now": "ob-body-intro",
+   "Back": "ob-name",
+   "Skip onboarding": "today-1"
+  },
+  "targets": [
+   {
+    "role": "button",
+    "label": "Back",
+    "w": 44,
+    "h": 44,
+    "x": 14,
+    "y": 6,
+    "visible": true,
+    "disabled": false
+   },
+   {
+    "role": "button",
+    "label": "Skip onboarding",
+    "w": 45,
+    "h": 44,
+    "x": 329,
+    "y": 6,
+    "visible": true,
+    "disabled": false
+   },
+   {
+    "role": "button",
+    "label": "Take face photo",
+    "w": 342,
+    "h": 56,
+    "x": 24,
+    "y": 708,
+    "visible": true,
+    "disabled": false
+   },
+   {
+    "role": "button",
+    "label": "Skip for now",
+    "w": 84,
+    "h": 48,
+    "x": 153,
+    "y": 772,
+    "visible": true,
+    "disabled": false
+   }
+  ],
+  "errors": 0
+ },
+ {
+  "id": "ob-face-capture",
+  "group": "Onboarding",
+  "title": "Face capture (permission primer)",
+  "route": "/onboarding/face-capture",
+  "path": "/onboarding/face-capture",
+  "file": "screens/ob-face-capture.png",
+  "links": {
+   "Allow camera": "ob-body-intro",
+   "Back": "ob-face-intro",
+   "Skip onboarding": "today-1"
+  },
+  "targets": [
+   {
+    "role": "button",
+    "label": "Back",
+    "w": 44,
+    "h": 44,
+    "x": 14,
+    "y": 6,
+    "visible": true,
+    "disabled": false
+   },
+   {
+    "role": "button",
+    "label": "Skip onboarding",
+    "w": 45,
+    "h": 44,
+    "x": 329,
+    "y": 6,
+    "visible": true,
+    "disabled": false
+   },
+   {
+    "role": "button",
+    "label": "Allow camera",
+    "w": 342,
+    "h": 56,
+    "x": 24,
+    "y": 260,
+    "visible": true,
+    "disabled": false
+   }
+  ],
+  "errors": 0
+ },
+ {
+  "id": "ob-body-intro",
+  "group": "Onboarding",
+  "title": "Body photo intro",
+  "route": "/onboarding/body-intro",
+  "path": "/onboarding/body-intro",
+  "file": "screens/ob-body-intro.png",
+  "links": {
+   "Take body photo": "ob-body-capture",
+   "Skip for now": "ob-color-analysis",
+   "Back": "ob-face-intro",
+   "Skip onboarding": "today-1"
+  },
+  "targets": [
+   {
+    "role": "button",
+    "label": "Back",
+    "w": 44,
+    "h": 44,
+    "x": 14,
+    "y": 6,
+    "visible": true,
+    "disabled": false
+   },
+   {
+    "role": "button",
+    "label": "Skip onboarding",
+    "w": 45,
+    "h": 44,
+    "x": 329,
+    "y": 6,
+    "visible": true,
+    "disabled": false
+   },
+   {
+    "role": "button",
+    "label": "Take body photo",
+    "w": 342,
+    "h": 56,
+    "x": 24,
+    "y": 708,
+    "visible": true,
+    "disabled": false
+   },
+   {
+    "role": "button",
+    "label": "Skip for now",
+    "w": 84,
+    "h": 48,
+    "x": 153,
+    "y": 772,
+    "visible": true,
+    "disabled": false
+   }
+  ],
+  "errors": 0
+ },
+ {
+  "id": "ob-body-capture",
+  "group": "Onboarding",
+  "title": "Body capture (permission primer)",
+  "route": "/onboarding/body-capture",
+  "path": "/onboarding/body-capture",
+  "file": "screens/ob-body-capture.png",
+  "links": {
+   "Allow camera": "ob-color-analysis",
+   "Back": "ob-body-intro",
+   "Skip onboarding": "today-1"
+  },
+  "targets": [
+   {
+    "role": "button",
+    "label": "Back",
+    "w": 44,
+    "h": 44,
+    "x": 14,
+    "y": 6,
+    "visible": true,
+    "disabled": false
+   },
+   {
+    "role": "button",
+    "label": "Skip onboarding",
+    "w": 45,
+    "h": 44,
+    "x": 329,
+    "y": 6,
+    "visible": true,
+    "disabled": false
+   },
+   {
+    "role": "button",
+    "label": "Allow camera",
+    "w": 342,
+    "h": 56,
+    "x": 24,
+    "y": 260,
+    "visible": true,
+    "disabled": false
+   }
+  ],
+  "errors": 0
+ },
+ {
+  "id": "ob-color-analyzing",
+  "group": "Onboarding",
+  "title": "Color analysis (analyzing)",
+  "route": "/onboarding/color-analysis",
+  "path": "/onboarding/color-analysis",
+  "file": "screens/ob-color-analyzing.png",
+  "links": {
+   "Back": "ob-body-intro",
+   "Skip onboarding": "today-1"
+  },
+  "timeoutTo": "ob-color-analysis",
+  "targets": [
+   {
+    "role": "button",
+    "label": "Back",
+    "w": 44,
+    "h": 44,
+    "x": 14,
+    "y": 6,
+    "visible": true,
+    "disabled": false
+   },
+   {
+    "role": "button",
+    "label": "Skip onboarding",
+    "w": 45,
+    "h": 44,
+    "x": 329,
+    "y": 6,
+    "visible": true,
+    "disabled": false
+   }
+  ],
+  "errors": 0
+ },
+ {
+  "id": "ob-color-analysis",
+  "group": "Onboarding",
+  "title": "Color analysis (reveal)",
+  "route": "/onboarding/color-analysis",
+  "path": "/onboarding/color-analysis",
+  "file": "screens/ob-color-analysis.png",
+  "links": {
+   "Looks right": "ob-life-context",
+   "Back": "ob-body-intro",
+   "Skip onboarding": "today-1"
+  },
+  "targets": [
+   {
+    "role": "button",
+    "label": "Back",
+    "w": 44,
+    "h": 44,
+    "x": 14,
+    "y": 6,
+    "visible": true,
+    "disabled": false
+   },
+   {
+    "role": "button",
+    "label": "Skip onboarding",
+    "w": 45,
+    "h": 44,
+    "x": 329,
+    "y": 6,
+    "visible": true,
+    "disabled": false
+   },
+   {
+    "role": "button",
+    "label": "Looks right",
+    "w": 342,
+    "h": 56,
+    "x": 24,
+    "y": 708,
+    "visible": true,
+    "disabled": false
+   },
+   {
+    "role": "button",
+    "label": "Let me adjust",
+    "w": 91,
+    "h": 48,
+    "x": 150,
+    "y": 772,
+    "visible": true,
+    "disabled": false
+   }
+  ],
+  "errors": 0
+ },
+ {
+  "id": "ob-life-context",
+  "group": "Onboarding",
+  "title": "Life context",
+  "route": "/onboarding/life-context",
+  "path": "/onboarding/life-context",
+  "file": "screens/ob-life-context.png",
+  "links": {
+   "Continue": "ob-figure-baseline",
+   "Back": "ob-color-analysis",
+   "Skip onboarding": "today-1"
+  },
+  "targets": [
+   {
+    "role": "button",
+    "label": "Back",
+    "w": 44,
+    "h": 44,
+    "x": 14,
+    "y": 6,
+    "visible": true,
+    "disabled": false
+   },
+   {
+    "role": "button",
+    "label": "Skip onboarding",
+    "w": 45,
+    "h": 44,
+    "x": 329,
+    "y": 6,
+    "visible": true,
+    "disabled": false
+   },
+   {
+    "role": "button",
+    "label": "🤰️\nPregnant",
+    "w": 120,
+    "h": 38,
+    "x": 76,
+    "y": 268,
+    "visible": true,
+    "disabled": false
+   },
+   {
+    "role": "button",
+    "label": "Postpartum",
+    "w": 111,
+    "h": 38,
+    "x": 204,
+    "y": 268,
+    "visible": true,
+    "disabled": false
+   },
+   {
+    "role": "button",
+    "label": "Body’s changing",
+    "w": 145,
+    "h": 38,
+    "x": 123,
+    "y": 314,
+    "visible": true,
+    "disabled": false
+   },
+   {
+    "role": "button",
+    "label": "Recovering from surgery",
+    "w": 198,
+    "h": 38,
+    "x": 96,
+    "y": 360,
+    "visible": true,
+    "disabled": false
+   },
+   {
+    "role": "button",
+    "label": "Nothing right now",
+    "w": 152,
+    "h": 38,
+    "x": 119,
+    "y": 406,
+    "visible": true,
+    "disabled": false
+   },
+   {
+    "role": "button",
+    "label": "Continue",
+    "w": 342,
+    "h": 56,
+    "x": 24,
+    "y": 764,
+    "visible": true,
+    "disabled": false
+   }
+  ],
+  "errors": 0
+ },
+ {
+  "id": "ob-figure-baseline",
+  "group": "Onboarding",
+  "title": "Fit preference",
+  "route": "/onboarding/figure-baseline",
+  "path": "/onboarding/figure-baseline",
+  "file": "screens/ob-figure-baseline.png",
+  "links": {
+   "Continue": "ob-style-swipes-1",
+   "Back": "ob-life-context",
+   "Skip onboarding": "today-1"
+  },
+  "targets": [
+   {
+    "role": "button",
+    "label": "Back",
+    "w": 44,
+    "h": 44,
+    "x": 14,
+    "y": 6,
+    "visible": true,
+    "disabled": false
+   },
+   {
+    "role": "button",
+    "label": "Skip onboarding",
+    "w": 45,
+    "h": 44,
+    "x": 329,
+    "y": 6,
+    "visible": true,
+    "disabled": false
+   },
+   {
+    "role": "button",
+    "label": "Oversized\nRoomy and relaxed. Borrowed-fr",
+    "w": 165,
+    "h": 134,
+    "x": 24,
+    "y": 268,
+    "visible": true,
+    "disabled": false
+   },
+   {
+    "role": "button",
+    "label": "Fitted\nTailored to your shape. Sharp lin",
+    "w": 165,
+    "h": 134,
+    "x": 201,
+    "y": 268,
+    "visible": true,
+    "disabled": false
+   },
+   {
+    "role": "button",
+    "label": "Structured\nArchitectural and considered.",
+    "w": 165,
+    "h": 132,
+    "x": 24,
+    "y": 414,
+    "visible": true,
+    "disabled": false
+   },
+   {
+    "role": "button",
+    "label": "Flowy\nSoft, draping, organic movement.",
+    "w": 165,
+    "h": 132,
+    "x": 201,
+    "y": 414,
+    "visible": true,
+    "disabled": false
+   },
+   {
+    "role": "button",
+    "label": "Show optional body shape question",
+    "w": 342,
+    "h": 46,
+    "x": 24,
+    "y": 610,
+    "visible": true,
+    "disabled": false
+   },
+   {
+    "role": "button",
+    "label": "Continue",
+    "w": 342,
+    "h": 56,
+    "x": 24,
+    "y": 764,
+    "visible": true,
+    "disabled": false
+   }
+  ],
+  "errors": 0
+ },
+ {
+  "id": "ob-style-swipes-1",
+  "group": "Onboarding",
+  "title": "Style swipes 1/2",
+  "route": "/onboarding/style-swipes-1",
+  "path": "/onboarding/style-swipes-1",
+  "file": "screens/ob-style-swipes-1.png",
+  "links": {
+   "Love this look": "ob-style-swipes-2",
+   "Pass on this look": "ob-style-swipes-2",
+   "Back": "ob-figure-baseline",
+   "Skip onboarding": "today-1"
+  },
+  "targets": [
+   {
+    "role": "button",
+    "label": "Back",
+    "w": 44,
+    "h": 44,
+    "x": 14,
+    "y": 6,
+    "visible": true,
+    "disabled": false
+   },
+   {
+    "role": "button",
+    "label": "Skip onboarding",
+    "w": 45,
+    "h": 44,
+    "x": 329,
+    "y": 6,
+    "visible": true,
+    "disabled": false
+   },
+   {
+    "role": "button",
+    "label": "Pass on this look",
+    "w": 56,
+    "h": 56,
+    "x": 107,
+    "y": 724,
+    "visible": true,
+    "disabled": false
+   },
+   {
+    "role": "button",
+    "label": "Love this look",
+    "w": 56,
+    "h": 56,
+    "x": 227,
+    "y": 724,
+    "visible": true,
+    "disabled": false
+   }
+  ],
+  "errors": 0
+ },
+ {
+  "id": "ob-style-swipes-2",
+  "group": "Onboarding",
+  "title": "Style swipes 2/2",
+  "route": "/onboarding/style-swipes-2",
+  "path": "/onboarding/style-swipes-2",
+  "file": "screens/ob-style-swipes-2.png",
+  "links": {
+   "Love this look": "ob-taste-reveal",
+   "Pass on this look": "ob-taste-reveal",
+   "Back": "ob-style-swipes-1",
+   "Skip onboarding": "today-1"
+  },
+  "targets": [
+   {
+    "role": "button",
+    "label": "Back",
+    "w": 44,
+    "h": 44,
+    "x": 14,
+    "y": 6,
+    "visible": true,
+    "disabled": false
+   },
+   {
+    "role": "button",
+    "label": "Skip onboarding",
+    "w": 45,
+    "h": 44,
+    "x": 329,
+    "y": 6,
+    "visible": true,
+    "disabled": false
+   },
+   {
+    "role": "button",
+    "label": "Pass on this look",
+    "w": 56,
+    "h": 56,
+    "x": 107,
+    "y": 724,
+    "visible": true,
+    "disabled": false
+   },
+   {
+    "role": "button",
+    "label": "Love this look",
+    "w": 56,
+    "h": 56,
+    "x": 227,
+    "y": 724,
+    "visible": true,
+    "disabled": false
+   }
+  ],
+  "errors": 0
+ },
+ {
+  "id": "ob-taste-reveal",
+  "group": "Onboarding",
+  "title": "Taste reveal",
+  "route": "/onboarding/taste-reveal",
+  "path": "/onboarding/taste-reveal",
+  "file": "screens/ob-taste-reveal.png",
+  "links": {
+   "See your first look": "ob-first-look",
+   "Back": "ob-style-swipes-2",
+   "Skip onboarding": "today-1"
+  },
+  "targets": [
+   {
+    "role": "button",
+    "label": "Back",
+    "w": 44,
+    "h": 44,
+    "x": 14,
+    "y": 6,
+    "visible": true,
+    "disabled": false
+   },
+   {
+    "role": "button",
+    "label": "Skip onboarding",
+    "w": 45,
+    "h": 44,
+    "x": 329,
+    "y": 6,
+    "visible": true,
+    "disabled": false
+   },
+   {
+    "role": "button",
+    "label": "See your first look",
+    "w": 342,
+    "h": 56,
+    "x": 24,
+    "y": 708,
+    "visible": true,
+    "disabled": false
+   },
+   {
+    "role": "button",
+    "label": "Let me adjust",
+    "w": 91,
+    "h": 48,
+    "x": 150,
+    "y": 772,
+    "visible": true,
+    "disabled": false
+   }
+  ],
+  "errors": 0
+ },
+ {
+  "id": "ob-first-look",
+  "group": "Onboarding",
+  "title": "Your first look",
+  "route": "/onboarding/first-look-preview",
+  "path": "/onboarding/first-look-preview",
+  "file": "screens/ob-first-look.png",
+  "links": {
+   "Save outfit": "ob-first-look-saved",
+   "Enter your closet": "today-1",
+   "Back": "ob-taste-reveal",
+   "Skip onboarding": "today-1"
+  },
+  "targets": [
+   {
+    "role": "button",
+    "label": "Back",
+    "w": 44,
+    "h": 44,
+    "x": 14,
+    "y": 6,
+    "visible": true,
+    "disabled": false
+   },
+   {
+    "role": "button",
+    "label": "Skip onboarding",
+    "w": 45,
+    "h": 44,
+    "x": 329,
+    "y": 6,
+    "visible": true,
+    "disabled": false
+   },
+   {
+    "role": "button",
+    "label": "Save outfit",
+    "w": 40,
+    "h": 40,
+    "x": 299,
+    "y": 198,
+    "visible": true,
+    "disabled": false
+   },
+   {
+    "role": "button",
+    "label": "Enter your closet",
+    "w": 342,
+    "h": 56,
+    "x": 24,
+    "y": 764,
+    "visible": true,
+    "disabled": false
+   }
+  ],
+  "errors": 0
+ },
+ {
+  "id": "ob-first-look-saved",
+  "group": "Onboarding",
+  "title": "Your first look — saved",
+  "route": "/onboarding/first-look-preview",
+  "path": "/onboarding/first-look-preview",
+  "file": "screens/ob-first-look-saved.png",
+  "links": {
+   "Saved": "ob-first-look",
+   "Enter your closet": "today-1",
+   "Back": "ob-taste-reveal",
+   "Skip onboarding": "today-1"
+  },
+  "targets": [
+   {
+    "role": "button",
+    "label": "Back",
+    "w": 44,
+    "h": 44,
+    "x": 14,
+    "y": 6,
+    "visible": true,
+    "disabled": false
+   },
+   {
+    "role": "button",
+    "label": "Skip onboarding",
+    "w": 45,
+    "h": 44,
+    "x": 329,
+    "y": 6,
+    "visible": true,
+    "disabled": false
+   },
+   {
+    "role": "button",
+    "label": "Saved",
+    "w": 40,
+    "h": 40,
+    "x": 299,
+    "y": 198,
+    "visible": true,
+    "disabled": false
+   },
+   {
+    "role": "button",
+    "label": "Enter your closet",
+    "w": 342,
+    "h": 56,
+    "x": 24,
+    "y": 764,
+    "visible": true,
+    "disabled": false
+   }
+  ],
+  "errors": 0
+ },
+ {
+  "id": "today-1",
+  "group": "Today & looks",
+  "title": "Today — look 1 of 3",
+  "route": "/",
+  "path": "/",
+  "file": "screens/today-1.png",
+  "links": {
+   "Open Soft Power": "outfit-soft-power",
+   "Save outfit": "today-1-saved",
+   "Today": "today-1",
+   "Events": "events-empty",
+   "Closet": "closet-empty",
+   "Saved": "saved-empty",
+   "You": "you",
+   "Ask Iris": "stylist"
+  },
+  "carousel": {
+   "next": "today-2"
+  },
+  "targets": [
+   {
+    "role": "button",
+    "label": "Notifications",
+    "w": 36,
+    "h": 36,
+    "x": 282,
+    "y": 10,
+    "visible": true,
+    "disabled": false
+   },
+   {
+    "role": "button",
+    "label": "Shopping bag",
+    "w": 36,
+    "h": 36,
+    "x": 330,
+    "y": 10,
+    "visible": true,
+    "disabled": false
+   },
+   {
+    "role": "button",
+    "label": "Change location, currently San Francisco",
+    "w": 390,
+    "h": 45,
+    "x": 0,
+    "y": 56,
+    "visible": true,
+    "disabled": false
+   },
+   {
+    "role": "button",
+    "label": "All",
+    "w": 50,
+    "h": 38,
+    "x": 24,
+    "y": 389,
+    "visible": true,
+    "disabled": false
+   },
+   {
+    "role": "button",
+    "label": "Work",
+    "w": 68,
+    "h": 38,
+    "x": 82,
+    "y": 389,
+    "visible": true,
+    "disabled": false
+   },
+   {
+    "role": "button",
+    "label": "Casual",
+    "w": 80,
+    "h": 38,
+    "x": 158,
+    "y": 389,
+    "visible": true,
+    "disabled": false
+   },
+   {
+    "role": "button",
+    "label": "Date",
+    "w": 65,
+    "h": 38,
+    "x": 246,
+    "y": 389,
+    "visible": true,
+    "disabled": false
+   },
+   {
+    "role": "button",
+    "label": "Going out",
+    "w": 98,
+    "h": 38,
+    "x": 319,
+    "y": 389,
+    "visible": true,
+    "disabled": false
+   },
+   {
+    "role": "button",
+    "label": "Open Soft Power, look 1 of 3",
+    "w": 342,
+    "h": 456,
+    "x": 24,
+    "y": 451,
+    "visible": true,
+    "disabled": false
+   },
+   {
+    "role": "button",
+    "label": "Save outfit",
+    "w": 40,
+    "h": 40,
+    "x": 310,
+    "y": 467,
+    "visible": true,
+    "disabled": false
+   },
+   {
+    "role": "tab",
+    "label": "Today",
+    "w": 78,
+    "h": 63,
+    "x": 0,
+    "y": 781,
+    "visible": true,
+    "disabled": false
+   },
+   {
+    "role": "tab",
+    "label": "Events",
+    "w": 78,
+    "h": 63,
+    "x": 78,
+    "y": 781,
+    "visible": true,
+    "disabled": false
+   },
+   {
+    "role": "tab",
+    "label": "Closet",
+    "w": 78,
+    "h": 63,
+    "x": 156,
+    "y": 781,
+    "visible": true,
+    "disabled": false
+   },
+   {
+    "role": "tab",
+    "label": "Saved",
+    "w": 78,
+    "h": 63,
+    "x": 234,
+    "y": 781,
+    "visible": true,
+    "disabled": false
+   },
+   {
+    "role": "tab",
+    "label": "You",
+    "w": 78,
+    "h": 63,
+    "x": 312,
+    "y": 781,
+    "visible": true,
+    "disabled": false
+   },
+   {
+    "role": "button",
+    "label": "Ask Iris",
+    "w": 68,
+    "h": 78,
+    "x": 306,
+    "y": 678,
+    "visible": true,
+    "disabled": false
+   }
+  ],
+  "errors": 0
+ },
+ {
+  "id": "today-1-saved",
+  "group": "Today & looks",
+  "title": "Today — look saved",
+  "route": "/",
+  "path": "/",
+  "file": "screens/today-1-saved.png",
+  "links": {
+   "Open Soft Power": "outfit-soft-power-saved",
+   "Saved": "saved-empty",
+   "Today": "today-1",
+   "Events": "events-empty",
+   "Closet": "closet-empty",
+   "You": "you",
+   "Ask Iris": "stylist",
+   "Saved_tab": "saved-1"
+  },
+  "carousel": {
+   "next": "today-2"
+  },
+  "targets": [
+   {
+    "role": "button",
+    "label": "Notifications",
+    "w": 36,
+    "h": 36,
+    "x": 282,
+    "y": 10,
+    "visible": true,
+    "disabled": false
+   },
+   {
+    "role": "button",
+    "label": "Shopping bag",
+    "w": 36,
+    "h": 36,
+    "x": 330,
+    "y": 10,
+    "visible": true,
+    "disabled": false
+   },
+   {
+    "role": "button",
+    "label": "Change location, currently San Francisco",
+    "w": 390,
+    "h": 45,
+    "x": 0,
+    "y": 56,
+    "visible": true,
+    "disabled": false
+   },
+   {
+    "role": "button",
+    "label": "All",
+    "w": 50,
+    "h": 38,
+    "x": 24,
+    "y": 389,
+    "visible": true,
+    "disabled": false
+   },
+   {
+    "role": "button",
+    "label": "Work",
+    "w": 68,
+    "h": 38,
+    "x": 82,
+    "y": 389,
+    "visible": true,
+    "disabled": false
+   },
+   {
+    "role": "button",
+    "label": "Casual",
+    "w": 80,
+    "h": 38,
+    "x": 158,
+    "y": 389,
+    "visible": true,
+    "disabled": false
+   },
+   {
+    "role": "button",
+    "label": "Date",
+    "w": 65,
+    "h": 38,
+    "x": 246,
+    "y": 389,
+    "visible": true,
+    "disabled": false
+   },
+   {
+    "role": "button",
+    "label": "Going out",
+    "w": 98,
+    "h": 38,
+    "x": 319,
+    "y": 389,
+    "visible": true,
+    "disabled": false
+   },
+   {
+    "role": "button",
+    "label": "Open Soft Power, look 1 of 3",
+    "w": 342,
+    "h": 456,
+    "x": 24,
+    "y": 451,
+    "visible": true,
+    "disabled": false
+   },
+   {
+    "role": "button",
+    "label": "Saved",
+    "w": 40,
+    "h": 40,
+    "x": 310,
+    "y": 467,
+    "visible": true,
+    "disabled": false
+   },
+   {
+    "role": "tab",
+    "label": "Today",
+    "w": 78,
+    "h": 63,
+    "x": 0,
+    "y": 781,
+    "visible": true,
+    "disabled": false
+   },
+   {
+    "role": "tab",
+    "label": "Events",
+    "w": 78,
+    "h": 63,
+    "x": 78,
+    "y": 781,
+    "visible": true,
+    "disabled": false
+   },
+   {
+    "role": "tab",
+    "label": "Closet",
+    "w": 78,
+    "h": 63,
+    "x": 156,
+    "y": 781,
+    "visible": true,
+    "disabled": false
+   },
+   {
+    "role": "tab",
+    "label": "Saved",
+    "w": 78,
+    "h": 63,
+    "x": 234,
+    "y": 781,
+    "visible": true,
+    "disabled": false
+   },
+   {
+    "role": "tab",
+    "label": "You",
+    "w": 78,
+    "h": 63,
+    "x": 312,
+    "y": 781,
+    "visible": true,
+    "disabled": false
+   },
+   {
+    "role": "button",
+    "label": "Ask Iris",
+    "w": 68,
+    "h": 78,
+    "x": 306,
+    "y": 678,
+    "visible": true,
+    "disabled": false
+   }
+  ],
+  "errors": 0
+ },
+ {
+  "id": "today-2",
+  "group": "Today & looks",
+  "title": "Today — look 2 of 3",
+  "route": "/",
+  "path": "/",
+  "file": "screens/today-2.png",
+  "links": {
+   "Open City Stroll": "outfit-city-stroll",
+   "Today": "today-1",
+   "Events": "events-empty",
+   "Closet": "closet-empty",
+   "Saved": "saved-empty",
+   "You": "you",
+   "Ask Iris": "stylist"
+  },
+  "carousel": {
+   "next": "today-3",
+   "prev": "today-1"
+  },
+  "targets": [
+   {
+    "role": "button",
+    "label": "Notifications",
+    "w": 36,
+    "h": 36,
+    "x": 282,
+    "y": 10,
+    "visible": true,
+    "disabled": false
+   },
+   {
+    "role": "button",
+    "label": "Shopping bag",
+    "w": 36,
+    "h": 36,
+    "x": 330,
+    "y": 10,
+    "visible": true,
+    "disabled": false
+   },
+   {
+    "role": "button",
+    "label": "Change location, currently San Francisco",
+    "w": 390,
+    "h": 45,
+    "x": 0,
+    "y": 56,
+    "visible": true,
+    "disabled": false
+   },
+   {
+    "role": "button",
+    "label": "All",
+    "w": 50,
+    "h": 38,
+    "x": 24,
+    "y": 389,
+    "visible": true,
+    "disabled": false
+   },
+   {
+    "role": "button",
+    "label": "Work",
+    "w": 68,
+    "h": 38,
+    "x": 82,
+    "y": 389,
+    "visible": true,
+    "disabled": false
+   },
+   {
+    "role": "button",
+    "label": "Casual",
+    "w": 80,
+    "h": 38,
+    "x": 158,
+    "y": 389,
+    "visible": true,
+    "disabled": false
+   },
+   {
+    "role": "button",
+    "label": "Date",
+    "w": 65,
+    "h": 38,
+    "x": 246,
+    "y": 389,
+    "visible": true,
+    "disabled": false
+   },
+   {
+    "role": "button",
+    "label": "Going out",
+    "w": 98,
+    "h": 38,
+    "x": 319,
+    "y": 389,
+    "visible": true,
+    "disabled": false
+   },
+   {
+    "role": "button",
+    "label": "Open Soft Power, look 1 of 3",
+    "w": 342,
+    "h": 456,
+    "x": -366,
+    "y": 451,
+    "visible": true,
+    "disabled": false
+   },
+   {
+    "role": "button",
+    "label": "Save outfit",
+    "w": 40,
+    "h": 40,
+    "x": -80,
+    "y": 467,
+    "visible": true,
+    "disabled": false
+   },
+   {
+    "role": "button",
+    "label": "Open City Stroll, look 2 of 3",
+    "w": 342,
+    "h": 456,
+    "x": 24,
+    "y": 451,
+    "visible": true,
+    "disabled": false
+   },
+   {
+    "role": "button",
+    "label": "Save outfit",
+    "w": 40,
+    "h": 40,
+    "x": 310,
+    "y": 467,
+    "visible": true,
+    "disabled": false
+   },
+   {
+    "role": "tab",
+    "label": "Today",
+    "w": 78,
+    "h": 63,
+    "x": 0,
+    "y": 781,
+    "visible": true,
+    "disabled": false
+   },
+   {
+    "role": "tab",
+    "label": "Events",
+    "w": 78,
+    "h": 63,
+    "x": 78,
+    "y": 781,
+    "visible": true,
+    "disabled": false
+   },
+   {
+    "role": "tab",
+    "label": "Closet",
+    "w": 78,
+    "h": 63,
+    "x": 156,
+    "y": 781,
+    "visible": true,
+    "disabled": false
+   },
+   {
+    "role": "tab",
+    "label": "Saved",
+    "w": 78,
+    "h": 63,
+    "x": 234,
+    "y": 781,
+    "visible": true,
+    "disabled": false
+   },
+   {
+    "role": "tab",
+    "label": "You",
+    "w": 78,
+    "h": 63,
+    "x": 312,
+    "y": 781,
+    "visible": true,
+    "disabled": false
+   },
+   {
+    "role": "button",
+    "label": "Ask Iris",
+    "w": 68,
+    "h": 78,
+    "x": 306,
+    "y": 678,
+    "visible": true,
+    "disabled": false
+   }
+  ],
+  "errors": 0
+ },
+ {
+  "id": "today-3",
+  "group": "Today & looks",
+  "title": "Today — look 3 of 3",
+  "route": "/",
+  "path": "/",
+  "file": "screens/today-3.png",
+  "links": {
+   "Open After Hours": "outfit-after-hours",
+   "Today": "today-1",
+   "Events": "events-empty",
+   "Closet": "closet-empty",
+   "Saved": "saved-empty",
+   "You": "you",
+   "Ask Iris": "stylist"
+  },
+  "carousel": {
+   "prev": "today-2"
+  },
+  "targets": [
+   {
+    "role": "button",
+    "label": "Notifications",
+    "w": 36,
+    "h": 36,
+    "x": 282,
+    "y": 10,
+    "visible": true,
+    "disabled": false
+   },
+   {
+    "role": "button",
+    "label": "Shopping bag",
+    "w": 36,
+    "h": 36,
+    "x": 330,
+    "y": 10,
+    "visible": true,
+    "disabled": false
+   },
+   {
+    "role": "button",
+    "label": "Change location, currently San Francisco",
+    "w": 390,
+    "h": 45,
+    "x": 0,
+    "y": 56,
+    "visible": true,
+    "disabled": false
+   },
+   {
+    "role": "button",
+    "label": "All",
+    "w": 50,
+    "h": 38,
+    "x": 24,
+    "y": 389,
+    "visible": true,
+    "disabled": false
+   },
+   {
+    "role": "button",
+    "label": "Work",
+    "w": 68,
+    "h": 38,
+    "x": 82,
+    "y": 389,
+    "visible": true,
+    "disabled": false
+   },
+   {
+    "role": "button",
+    "label": "Casual",
+    "w": 80,
+    "h": 38,
+    "x": 158,
+    "y": 389,
+    "visible": true,
+    "disabled": false
+   },
+   {
+    "role": "button",
+    "label": "Date",
+    "w": 65,
+    "h": 38,
+    "x": 246,
+    "y": 389,
+    "visible": true,
+    "disabled": false
+   },
+   {
+    "role": "button",
+    "label": "Going out",
+    "w": 98,
+    "h": 38,
+    "x": 319,
+    "y": 389,
+    "visible": true,
+    "disabled": false
+   },
+   {
+    "role": "button",
+    "label": "Open Soft Power, look 1 of 3",
+    "w": 342,
+    "h": 456,
+    "x": -756,
+    "y": 451,
+    "visible": true,
+    "disabled": false
+   },
+   {
+    "role": "button",
+    "label": "Save outfit",
+    "w": 40,
+    "h": 40,
+    "x": -470,
+    "y": 467,
+    "visible": true,
+    "disabled": false
+   },
+   {
+    "role": "button",
+    "label": "Open City Stroll, look 2 of 3",
+    "w": 342,
+    "h": 456,
+    "x": -366,
+    "y": 451,
+    "visible": true,
+    "disabled": false
+   },
+   {
+    "role": "button",
+    "label": "Save outfit",
+    "w": 40,
+    "h": 40,
+    "x": -80,
+    "y": 467,
+    "visible": true,
+    "disabled": false
+   },
+   {
+    "role": "button",
+    "label": "Open After Hours, look 3 of 3",
+    "w": 342,
+    "h": 456,
+    "x": 24,
+    "y": 451,
+    "visible": true,
+    "disabled": false
+   },
+   {
+    "role": "button",
+    "label": "Save outfit",
+    "w": 40,
+    "h": 40,
+    "x": 310,
+    "y": 467,
+    "visible": true,
+    "disabled": false
+   },
+   {
+    "role": "tab",
+    "label": "Today",
+    "w": 78,
+    "h": 63,
+    "x": 0,
+    "y": 781,
+    "visible": true,
+    "disabled": false
+   },
+   {
+    "role": "tab",
+    "label": "Events",
+    "w": 78,
+    "h": 63,
+    "x": 78,
+    "y": 781,
+    "visible": true,
+    "disabled": false
+   },
+   {
+    "role": "tab",
+    "label": "Closet",
+    "w": 78,
+    "h": 63,
+    "x": 156,
+    "y": 781,
+    "visible": true,
+    "disabled": false
+   },
+   {
+    "role": "tab",
+    "label": "Saved",
+    "w": 78,
+    "h": 63,
+    "x": 234,
+    "y": 781,
+    "visible": true,
+    "disabled": false
+   },
+   {
+    "role": "tab",
+    "label": "You",
+    "w": 78,
+    "h": 63,
+    "x": 312,
+    "y": 781,
+    "visible": true,
+    "disabled": false
+   },
+   {
+    "role": "button",
+    "label": "Ask Iris",
+    "w": 68,
+    "h": 78,
+    "x": 306,
+    "y": 678,
+    "visible": true,
+    "disabled": false
+   }
+  ],
+  "errors": 0
+ },
+ {
+  "id": "outfit-soft-power",
+  "group": "Today & looks",
+  "title": "Outfit detail — Soft Power",
+  "route": "/outfit/soft-power",
+  "path": "/outfit/soft-power",
+  "file": "screens/outfit-soft-power.png",
+  "links": {
+   "Back": "today-1",
+   "Save look": "outfit-soft-power-saved",
+   "Save outfit": "outfit-soft-power-saved"
+  },
+  "targets": [
+   {
+    "role": "button",
+    "label": "Back",
+    "w": 36,
+    "h": 36,
+    "x": 16,
+    "y": 10,
+    "visible": true,
+    "disabled": false
+   },
+   {
+    "role": "button",
+    "label": "Save outfit",
+    "w": 48,
+    "h": 48,
+    "x": 326,
+    "y": 72,
+    "visible": true,
+    "disabled": false
+   }
+  ],
+  "errors": 0
+ },
+ {
+  "id": "outfit-soft-power-saved",
+  "group": "Today & looks",
+  "title": "Outfit detail — saved",
+  "route": "/outfit/soft-power",
+  "path": "/outfit/soft-power",
+  "file": "screens/outfit-soft-power-saved.png",
+  "links": {
+   "Back": "today-1-saved",
+   "Saved": "outfit-soft-power"
+  },
+  "targets": [
+   {
+    "role": "button",
+    "label": "Back",
+    "w": 36,
+    "h": 36,
+    "x": 16,
+    "y": 10,
+    "visible": true,
+    "disabled": false
+   },
+   {
+    "role": "button",
+    "label": "Saved",
+    "w": 106,
+    "h": 40,
+    "x": 24,
+    "y": 756,
+    "visible": true,
+    "disabled": false
+   },
+   {
+    "role": "button",
+    "label": "Try a variation",
+    "w": 151,
+    "h": 38,
+    "x": 138,
+    "y": 756,
+    "visible": true,
+    "disabled": false
+   },
+   {
+    "role": "button",
+    "label": "Find missing pieces",
+    "w": 191,
+    "h": 38,
+    "x": 297,
+    "y": 756,
+    "visible": true,
+    "disabled": false
+   }
+  ],
+  "errors": 0
+ },
+ {
+  "id": "outfit-city-stroll",
+  "group": "Today & looks",
+  "title": "Outfit detail — City Stroll",
+  "route": "/outfit/city-stroll",
+  "path": "/outfit/city-stroll",
+  "file": "screens/outfit-city-stroll.png",
+  "links": {
+   "Back": "today-2"
+  },
+  "targets": [
+   {
+    "role": "button",
+    "label": "Back",
+    "w": 36,
+    "h": 36,
+    "x": 16,
+    "y": 10,
+    "visible": true,
+    "disabled": false
+   },
+   {
+    "role": "button",
+    "label": "Save outfit",
+    "w": 48,
+    "h": 48,
+    "x": 326,
+    "y": 72,
+    "visible": true,
+    "disabled": false
+   }
+  ],
+  "errors": 0
+ },
+ {
+  "id": "outfit-after-hours",
+  "group": "Today & looks",
+  "title": "Outfit detail — After Hours",
+  "route": "/outfit/after-hours",
+  "path": "/outfit/after-hours",
+  "file": "screens/outfit-after-hours.png",
+  "links": {
+   "Back": "today-3"
+  },
+  "targets": [
+   {
+    "role": "button",
+    "label": "Back",
+    "w": 36,
+    "h": 36,
+    "x": 16,
+    "y": 10,
+    "visible": true,
+    "disabled": false
+   },
+   {
+    "role": "button",
+    "label": "Save outfit",
+    "w": 48,
+    "h": 48,
+    "x": 326,
+    "y": 72,
+    "visible": true,
+    "disabled": false
+   }
+  ],
+  "errors": 0
+ },
+ {
+  "id": "saved-empty",
+  "group": "Today & looks",
+  "title": "Saved — empty state",
+  "route": "/saved",
+  "path": "/saved",
+  "file": "screens/saved-empty.png",
+  "links": {
+   "See today's looks": "today-1",
+   "Today": "today-1",
+   "Events": "events-empty",
+   "Closet": "closet-empty",
+   "Saved": "saved-empty",
+   "You": "you",
+   "Ask Iris": "stylist"
+  },
+  "targets": [
+   {
+    "role": "button",
+    "label": "See today's looks",
+    "w": 175,
+    "h": 48,
+    "x": 108,
+    "y": 489,
+    "visible": true,
+    "disabled": false
+   },
+   {
+    "role": "tab",
+    "label": "Today",
+    "w": 78,
+    "h": 63,
+    "x": 0,
+    "y": 781,
+    "visible": true,
+    "disabled": false
+   },
+   {
+    "role": "tab",
+    "label": "Events",
+    "w": 78,
+    "h": 63,
+    "x": 78,
+    "y": 781,
+    "visible": true,
+    "disabled": false
+   },
+   {
+    "role": "tab",
+    "label": "Closet",
+    "w": 78,
+    "h": 63,
+    "x": 156,
+    "y": 781,
+    "visible": true,
+    "disabled": false
+   },
+   {
+    "role": "tab",
+    "label": "Saved",
+    "w": 78,
+    "h": 63,
+    "x": 234,
+    "y": 781,
+    "visible": true,
+    "disabled": false
+   },
+   {
+    "role": "tab",
+    "label": "You",
+    "w": 78,
+    "h": 63,
+    "x": 312,
+    "y": 781,
+    "visible": true,
+    "disabled": false
+   },
+   {
+    "role": "button",
+    "label": "Ask Iris",
+    "w": 68,
+    "h": 78,
+    "x": 306,
+    "y": 678,
+    "visible": true,
+    "disabled": false
+   }
+  ],
+  "errors": 0
+ },
+ {
+  "id": "saved-1",
+  "group": "Today & looks",
+  "title": "Saved — 1 look",
+  "route": "/saved",
+  "path": "/saved",
+  "file": "screens/saved-1.png",
+  "links": {
+   "Open Soft Power": "outfit-soft-power-saved",
+   "Saved": "saved-empty",
+   "Today": "today-1-saved",
+   "Events": "events-empty",
+   "Closet": "closet-empty",
+   "You": "you",
+   "Ask Iris": "stylist"
+  },
+  "targets": [
+   {
+    "role": "button",
+    "label": "Open Soft Power",
+    "w": 164,
+    "h": 281,
+    "x": 24,
+    "y": 78,
+    "visible": true,
+    "disabled": false
+   },
+   {
+    "role": "button",
+    "label": "Saved",
+    "w": 32,
+    "h": 32,
+    "x": 140,
+    "y": 94,
+    "visible": true,
+    "disabled": false
+   },
+   {
+    "role": "tab",
+    "label": "Today",
+    "w": 78,
+    "h": 63,
+    "x": 0,
+    "y": 781,
+    "visible": true,
+    "disabled": false
+   },
+   {
+    "role": "tab",
+    "label": "Events",
+    "w": 78,
+    "h": 63,
+    "x": 78,
+    "y": 781,
+    "visible": true,
+    "disabled": false
+   },
+   {
+    "role": "tab",
+    "label": "Closet",
+    "w": 78,
+    "h": 63,
+    "x": 156,
+    "y": 781,
+    "visible": true,
+    "disabled": false
+   },
+   {
+    "role": "tab",
+    "label": "Saved",
+    "w": 78,
+    "h": 63,
+    "x": 234,
+    "y": 781,
+    "visible": true,
+    "disabled": false
+   },
+   {
+    "role": "tab",
+    "label": "You",
+    "w": 78,
+    "h": 63,
+    "x": 312,
+    "y": 781,
+    "visible": true,
+    "disabled": false
+   },
+   {
+    "role": "button",
+    "label": "Ask Iris",
+    "w": 68,
+    "h": 78,
+    "x": 306,
+    "y": 678,
+    "visible": true,
+    "disabled": false
+   }
+  ],
+  "errors": 0
+ },
+ {
+  "id": "events-empty",
+  "group": "Events",
+  "title": "Events — empty state",
+  "route": "/events",
+  "path": "/events",
+  "file": "screens/events-empty.png",
+  "links": {
+   "Add a moment": "events-add-sheet",
+   "Toggle mock events": "events-list",
+   "Today": "today-1",
+   "Events": "events-empty",
+   "Closet": "closet-empty",
+   "Saved": "saved-empty",
+   "You": "you",
+   "Ask Iris": "stylist"
+  },
+  "targets": [
+   {
+    "role": "button",
+    "label": "Notifications",
+    "w": 36,
+    "h": 36,
+    "x": 282,
+    "y": 10,
+    "visible": true,
+    "disabled": false
+   },
+   {
+    "role": "button",
+    "label": "Shopping bag",
+    "w": 36,
+    "h": 36,
+    "x": 330,
+    "y": 10,
+    "visible": true,
+    "disabled": false
+   },
+   {
+    "role": "button",
+    "label": "Add a moment",
+    "w": 150,
+    "h": 48,
+    "x": 120,
+    "y": 489,
+    "visible": true,
+    "disabled": false
+   },
+   {
+    "role": "tab",
+    "label": "Today",
+    "w": 78,
+    "h": 63,
+    "x": 0,
+    "y": 781,
+    "visible": true,
+    "disabled": false
+   },
+   {
+    "role": "tab",
+    "label": "Events",
+    "w": 78,
+    "h": 63,
+    "x": 78,
+    "y": 781,
+    "visible": true,
+    "disabled": false
+   },
+   {
+    "role": "tab",
+    "label": "Closet",
+    "w": 78,
+    "h": 63,
+    "x": 156,
+    "y": 781,
+    "visible": true,
+    "disabled": false
+   },
+   {
+    "role": "tab",
+    "label": "Saved",
+    "w": 78,
+    "h": 63,
+    "x": 234,
+    "y": 781,
+    "visible": true,
+    "disabled": false
+   },
+   {
+    "role": "tab",
+    "label": "You",
+    "w": 78,
+    "h": 63,
+    "x": 312,
+    "y": 781,
+    "visible": true,
+    "disabled": false
+   },
+   {
+    "role": "button",
+    "label": "Ask Iris",
+    "w": 68,
+    "h": 78,
+    "x": 306,
+    "y": 678,
+    "visible": true,
+    "disabled": false
+   }
+  ],
+  "errors": 0
+ },
+ {
+  "id": "events-add-sheet",
+  "group": "Events",
+  "title": "Add a moment — sheet",
+  "route": "/events",
+  "path": "/events",
+  "file": "screens/events-add-sheet.png",
+  "links": {
+   "Add manually": "events-manual-form",
+   "Connect Google Calendar": "events-calendar-sheet",
+   "Close sheet": "events-empty",
+   "Close": "events-empty"
+  },
+  "targets": [
+   {
+    "role": "button",
+    "label": "Notifications",
+    "w": 36,
+    "h": 36,
+    "x": 282,
+    "y": 10,
+    "visible": true,
+    "disabled": false
+   },
+   {
+    "role": "button",
+    "label": "Shopping bag",
+    "w": 36,
+    "h": 36,
+    "x": 330,
+    "y": 10,
+    "visible": true,
+    "disabled": false
+   },
+   {
+    "role": "button",
+    "label": "Add a moment",
+    "w": 150,
+    "h": 48,
+    "x": 120,
+    "y": 489,
+    "visible": true,
+    "disabled": false
+   },
+   {
+    "role": "tab",
+    "label": "Today",
+    "w": 78,
+    "h": 63,
+    "x": 0,
+    "y": 781,
+    "visible": true,
+    "disabled": false
+   },
+   {
+    "role": "tab",
+    "label": "Events",
+    "w": 78,
+    "h": 63,
+    "x": 78,
+    "y": 781,
+    "visible": true,
+    "disabled": false
+   },
+   {
+    "role": "tab",
+    "label": "Closet",
+    "w": 78,
+    "h": 63,
+    "x": 156,
+    "y": 781,
+    "visible": true,
+    "disabled": false
+   },
+   {
+    "role": "tab",
+    "label": "Saved",
+    "w": 78,
+    "h": 63,
+    "x": 234,
+    "y": 781,
+    "visible": true,
+    "disabled": false
+   },
+   {
+    "role": "tab",
+    "label": "You",
+    "w": 78,
+    "h": 63,
+    "x": 312,
+    "y": 781,
+    "visible": true,
+    "disabled": false
+   },
+   {
+    "role": "button",
+    "label": "Ask Iris",
+    "w": 68,
+    "h": 78,
+    "x": 306,
+    "y": 678,
+    "visible": true,
+    "disabled": false
+   },
+   {
+    "role": "button",
+    "label": "Close",
+    "w": 32,
+    "h": 32,
+    "x": 334,
+    "y": 447,
+    "visible": true,
+    "disabled": false
+   },
+   {
+    "role": "button",
+    "label": "Ask Iris\nA few questions, then a look yo",
+    "w": 342,
+    "h": 104,
+    "x": 24,
+    "y": 496,
+    "visible": true,
+    "disabled": false
+   },
+   {
+    "role": "button",
+    "label": "Connect Google Calendar\nIris reads what'",
+    "w": 342,
+    "h": 104,
+    "x": 24,
+    "y": 612,
+    "visible": true,
+    "disabled": false
+   },
+   {
+    "role": "button",
+    "label": "Add manually\nType the moment yourself",
+    "w": 342,
+    "h": 84,
+    "x": 24,
+    "y": 728,
+    "visible": true,
+    "disabled": false
+   }
+  ],
+  "errors": 0
+ },
+ {
+  "id": "events-manual-form",
+  "group": "Events",
+  "title": "Add a moment — manual form",
+  "route": "/events",
+  "path": "/events",
+  "file": "screens/events-manual-form.png",
+  "links": {
+   "Close": "events-empty",
+   "Close sheet": "events-empty",
+   "Cancel": "events-empty"
+  },
+  "targets": [
+   {
+    "role": "button",
+    "label": "Toggle mock events (dev only)",
+    "w": 76,
+    "h": 24,
+    "x": 194,
+    "y": 16,
+    "visible": true,
+    "disabled": false
+   },
+   {
+    "role": "button",
+    "label": "Notifications",
+    "w": 36,
+    "h": 36,
+    "x": 282,
+    "y": 10,
+    "visible": true,
+    "disabled": false
+   },
+   {
+    "role": "button",
+    "label": "Shopping bag",
+    "w": 36,
+    "h": 36,
+    "x": 330,
+    "y": 10,
+    "visible": true,
+    "disabled": false
+   },
+   {
+    "role": "button",
+    "label": "Add a moment",
+    "w": 150,
+    "h": 48,
+    "x": 120,
+    "y": 489,
+    "visible": true,
+    "disabled": false
+   },
+   {
+    "role": "tab",
+    "label": "Today",
+    "w": 78,
+    "h": 63,
+    "x": 0,
+    "y": 781,
+    "visible": true,
+    "disabled": false
+   },
+   {
+    "role": "tab",
+    "label": "Events",
+    "w": 78,
+    "h": 63,
+    "x": 78,
+    "y": 781,
+    "visible": true,
+    "disabled": false
+   },
+   {
+    "role": "tab",
+    "label": "Closet",
+    "w": 78,
+    "h": 63,
+    "x": 156,
+    "y": 781,
+    "visible": true,
+    "disabled": false
+   },
+   {
+    "role": "tab",
+    "label": "Saved",
+    "w": 78,
+    "h": 63,
+    "x": 234,
+    "y": 781,
+    "visible": true,
+    "disabled": false
+   },
+   {
+    "role": "tab",
+    "label": "You",
+    "w": 78,
+    "h": 63,
+    "x": 312,
+    "y": 781,
+    "visible": true,
+    "disabled": false
+   },
+   {
+    "role": "button",
+    "label": "Ask Iris",
+    "w": 68,
+    "h": 78,
+    "x": 306,
+    "y": 678,
+    "visible": true,
+    "disabled": false
+   },
+   {
+    "role": "button",
+    "label": "Close",
+    "w": 36,
+    "h": 36,
+    "x": 24,
+    "y": 10,
+    "visible": true,
+    "disabled": false
+   },
+   {
+    "role": "button",
+    "label": "Save",
+    "w": 57,
+    "h": 34,
+    "x": 309,
+    "y": 11,
+    "visible": true,
+    "disabled": true
+   },
+   {
+    "role": "button",
+    "label": "💼️\nWork",
+    "w": 94,
+    "h": 38,
+    "x": 24,
+    "y": 98,
+    "visible": true,
+    "disabled": false
+   },
+   {
+    "role": "button",
+    "label": "🥂️\nDinner",
+    "w": 103,
+    "h": 38,
+    "x": 126,
+    "y": 98,
+    "visible": true,
+    "disabled": false
+   },
+   {
+    "role": "button",
+    "label": "💍️\nWedding",
+    "w": 120,
+    "h": 38,
+    "x": 237,
+    "y": 98,
+    "visible": true,
+    "disabled": false
+   },
+   {
+    "role": "button",
+    "label": "✈️\nTrip",
+    "w": 86,
+    "h": 38,
+    "x": 365,
+    "y": 98,
+    "visible": true,
+    "disabled": false
+   },
+   {
+    "role": "input",
+    "label": "Name this moment",
+    "w": 342,
+    "h": 52,
+    "x": 24,
+    "y": 186,
+    "visible": true,
+    "disabled": false
+   },
+   {
+    "role": "button",
+    "label": "Pick date and time",
+    "w": 342,
+    "h": 52,
+    "x": 24,
+    "y": 288,
+    "visible": true,
+    "disabled": false
+   },
+   {
+    "role": "button",
+    "label": "Pick a location",
+    "w": 342,
+    "h": 52,
+    "x": 24,
+    "y": 390,
+    "visible": true,
+    "disabled": false
+   },
+   {
+    "role": "switch",
+    "label": "",
+    "w": 40,
+    "h": 20,
+    "x": 310,
+    "y": 508,
+    "visible": true,
+    "disabled": false
+   },
+   {
+    "role": "button",
+    "label": "Add context",
+    "w": 342,
+    "h": 52,
+    "x": 24,
+    "y": 594,
+    "visible": true,
+    "disabled": false
+   },
+   {
+    "role": "button",
+    "label": "Style this moment",
+    "w": 342,
+    "h": 56,
+    "x": 24,
+    "y": 772,
+    "visible": true,
+    "disabled": true
+   }
+  ],
+  "errors": 0
+ },
+ {
+  "id": "events-calendar-sheet",
+  "group": "Events",
+  "title": "Connect calendar — privacy",
+  "route": "/events",
+  "path": "/events",
+  "file": "screens/events-calendar-sheet.png",
+  "links": {
+   "Close": "events-empty",
+   "Close sheet": "events-empty",
+   "Not now": "events-empty",
+   "Continue": "events-list",
+   "Connect": "events-list"
+  },
+  "targets": [
+   {
+    "role": "button",
+    "label": "Toggle mock events (dev only)",
+    "w": 76,
+    "h": 24,
+    "x": 194,
+    "y": 16,
+    "visible": true,
+    "disabled": false
+   },
+   {
+    "role": "button",
+    "label": "Notifications",
+    "w": 36,
+    "h": 36,
+    "x": 282,
+    "y": 10,
+    "visible": true,
+    "disabled": false
+   },
+   {
+    "role": "button",
+    "label": "Shopping bag",
+    "w": 36,
+    "h": 36,
+    "x": 330,
+    "y": 10,
+    "visible": true,
+    "disabled": false
+   },
+   {
+    "role": "button",
+    "label": "Add a moment",
+    "w": 150,
+    "h": 48,
+    "x": 120,
+    "y": 489,
+    "visible": true,
+    "disabled": false
+   },
+   {
+    "role": "tab",
+    "label": "Today",
+    "w": 78,
+    "h": 63,
+    "x": 0,
+    "y": 781,
+    "visible": true,
+    "disabled": false
+   },
+   {
+    "role": "tab",
+    "label": "Events",
+    "w": 78,
+    "h": 63,
+    "x": 78,
+    "y": 781,
+    "visible": true,
+    "disabled": false
+   },
+   {
+    "role": "tab",
+    "label": "Closet",
+    "w": 78,
+    "h": 63,
+    "x": 156,
+    "y": 781,
+    "visible": true,
+    "disabled": false
+   },
+   {
+    "role": "tab",
+    "label": "Saved",
+    "w": 78,
+    "h": 63,
+    "x": 234,
+    "y": 781,
+    "visible": true,
+    "disabled": false
+   },
+   {
+    "role": "tab",
+    "label": "You",
+    "w": 78,
+    "h": 63,
+    "x": 312,
+    "y": 781,
+    "visible": true,
+    "disabled": false
+   },
+   {
+    "role": "button",
+    "label": "Ask Iris",
+    "w": 68,
+    "h": 78,
+    "x": 306,
+    "y": 678,
+    "visible": true,
+    "disabled": false
+   },
+   {
+    "role": "button",
+    "label": "Close",
+    "w": 32,
+    "h": 32,
+    "x": 24,
+    "y": 194,
+    "visible": true,
+    "disabled": false
+   },
+   {
+    "role": "button",
+    "label": "Connect Google Calendar",
+    "w": 342,
+    "h": 48,
+    "x": 24,
+    "y": 704,
+    "visible": true,
+    "disabled": false
+   },
+   {
+    "role": "button",
+    "label": "Not now",
+    "w": 56,
+    "h": 48,
+    "x": 24,
+    "y": 764,
+    "visible": true,
+    "disabled": false
+   }
+  ],
+  "errors": 0
+ },
+ {
+  "id": "events-list",
+  "group": "Events",
+  "title": "Events — with moments",
+  "route": "/events",
+  "path": "/events",
+  "file": "screens/events-list.png",
+  "links": {
+   "Add a moment": "events-add-sheet",
+   "Toggle mock events": "events-empty",
+   "Today": "today-1",
+   "Events": "events-empty",
+   "Closet": "closet-empty",
+   "Saved": "saved-empty",
+   "You": "you",
+   "Ask Iris": "stylist"
+  },
+  "firstCardTo": "moment-look",
+  "targets": [
+   {
+    "role": "button",
+    "label": "Notifications",
+    "w": 36,
+    "h": 36,
+    "x": 282,
+    "y": 10,
+    "visible": true,
+    "disabled": false
+   },
+   {
+    "role": "button",
+    "label": "Shopping bag",
+    "w": 36,
+    "h": 36,
+    "x": 330,
+    "y": 10,
+    "visible": true,
+    "disabled": false
+   },
+   {
+    "role": "button",
+    "label": "Add a moment",
+    "w": 176,
+    "h": 48,
+    "x": 24,
+    "y": 214,
+    "visible": true,
+    "disabled": false
+   },
+   {
+    "role": "button",
+    "label": "Upcoming\n4",
+    "w": 113,
+    "h": 38,
+    "x": 24,
+    "y": 286,
+    "visible": true,
+    "disabled": false
+   },
+   {
+    "role": "button",
+    "label": "Trips\n1",
+    "w": 78,
+    "h": 38,
+    "x": 145,
+    "y": 286,
+    "visible": true,
+    "disabled": false
+   },
+   {
+    "role": "button",
+    "label": "WORK · CONFERENCE ROOM\nILLUSTRATION\nTODA",
+    "w": 342,
+    "h": 408,
+    "x": 24,
+    "y": 368,
+    "visible": true,
+    "disabled": false
+   },
+   {
+    "role": "button",
+    "label": "DINNER · YAKITORI BAR\nILLUSTRATION\nTOMOR",
+    "w": 342,
+    "h": 408,
+    "x": 24,
+    "y": 792,
+    "visible": true,
+    "disabled": false
+   },
+   {
+    "role": "tab",
+    "label": "Today",
+    "w": 78,
+    "h": 63,
+    "x": 0,
+    "y": 781,
+    "visible": true,
+    "disabled": false
+   },
+   {
+    "role": "tab",
+    "label": "Events",
+    "w": 78,
+    "h": 63,
+    "x": 78,
+    "y": 781,
+    "visible": true,
+    "disabled": false
+   },
+   {
+    "role": "tab",
+    "label": "Closet",
+    "w": 78,
+    "h": 63,
+    "x": 156,
+    "y": 781,
+    "visible": true,
+    "disabled": false
+   },
+   {
+    "role": "tab",
+    "label": "Saved",
+    "w": 78,
+    "h": 63,
+    "x": 234,
+    "y": 781,
+    "visible": true,
+    "disabled": false
+   },
+   {
+    "role": "tab",
+    "label": "You",
+    "w": 78,
+    "h": 63,
+    "x": 312,
+    "y": 781,
+    "visible": true,
+    "disabled": false
+   },
+   {
+    "role": "button",
+    "label": "Ask Iris",
+    "w": 68,
+    "h": 78,
+    "x": 306,
+    "y": 678,
+    "visible": true,
+    "disabled": false
+   }
+  ],
+  "errors": 0
+ },
+ {
+  "id": "moment-composer-dress",
+  "group": "Iris",
+  "title": "Moment composer — dress code",
+  "route": "/moment-composer",
+  "path": "/moment-composer",
+  "file": "screens/moment-composer-dress.png",
+  "links": {
+   "Back": "stylist",
+   "Casual": "moment-look",
+   "Smart casual": "moment-look",
+   "Semi-formal": "moment-look",
+   "Formal": "moment-look"
+  },
+  "targets": [
+   {
+    "role": "button",
+    "label": "Back",
+    "w": 36,
+    "h": 36,
+    "x": 16,
+    "y": 12,
+    "visible": true,
+    "disabled": false
+   },
+   {
+    "role": "button",
+    "label": "🥂️ Dinner",
+    "w": 103,
+    "h": 46,
+    "x": 263,
+    "y": 230,
+    "visible": true,
+    "disabled": false
+   },
+   {
+    "role": "button",
+    "label": "Fri, Oct 2",
+    "w": 97,
+    "h": 46,
+    "x": 269,
+    "y": 296,
+    "visible": true,
+    "disabled": false
+   },
+   {
+    "role": "button",
+    "label": "SoHo, New York",
+    "w": 147,
+    "h": 46,
+    "x": 219,
+    "y": 362,
+    "visible": true,
+    "disabled": false
+   },
+   {
+    "role": "button",
+    "label": "Casual",
+    "w": 80,
+    "h": 38,
+    "x": 24,
+    "y": 688,
+    "visible": true,
+    "disabled": false
+   },
+   {
+    "role": "button",
+    "label": "Smart casual",
+    "w": 121,
+    "h": 38,
+    "x": 112,
+    "y": 688,
+    "visible": true,
+    "disabled": false
+   },
+   {
+    "role": "button",
+    "label": "Semi-formal",
+    "w": 115,
+    "h": 38,
+    "x": 241,
+    "y": 688,
+    "visible": true,
+    "disabled": false
+   },
+   {
+    "role": "button",
+    "label": "Formal",
+    "w": 78,
+    "h": 38,
+    "x": 24,
+    "y": 734,
+    "visible": true,
+    "disabled": false
+   },
+   {
+    "role": "button",
+    "label": "Something else…",
+    "w": 148,
+    "h": 38,
+    "x": 110,
+    "y": 734,
+    "visible": true,
+    "disabled": false
+   }
+  ],
+  "errors": 0
+ },
+ {
+  "id": "moment-look",
+  "group": "Events",
+  "title": "Moment look (composed by Iris)",
+  "route": "/moment-composer",
+  "path": "/moment-look/iris_muoi4g0o_hrj8",
+  "file": "screens/moment-look.png",
+  "links": {
+   "Back": "events-list"
+  },
+  "targets": [
+   {
+    "role": "button",
+    "label": "Back",
+    "w": 36,
+    "h": 36,
+    "x": 16,
+    "y": 12,
+    "visible": true,
+    "disabled": false
+   },
+   {
+    "role": "button",
+    "label": "Add photo",
+    "w": 342,
+    "h": 48,
+    "x": 24,
+    "y": 233,
+    "visible": true,
+    "disabled": false
+   }
+  ],
+  "errors": 0
+ },
+ {
+  "id": "closet-empty",
+  "group": "Closet",
+  "title": "Closet — empty state",
+  "route": "/closet",
+  "path": "/closet",
+  "file": "screens/closet-empty.png",
+  "links": {
+   "Add a piece": "closet-add-sheet",
+   "Add your first piece": "closet-add-sheet",
+   "Today": "today-1",
+   "Events": "events-empty",
+   "Closet": "closet-empty",
+   "Saved": "saved-empty",
+   "You": "you",
+   "Ask Iris": "stylist"
+  },
+  "targets": [
+   {
+    "role": "button",
+    "label": "Add a piece",
+    "w": 36,
+    "h": 36,
+    "x": 286,
+    "y": 10,
+    "visible": true,
+    "disabled": false
+   },
+   {
+    "role": "button",
+    "label": "Notifications",
+    "w": 36,
+    "h": 36,
+    "x": 330,
+    "y": 10,
+    "visible": true,
+    "disabled": false
+   },
+   {
+    "role": "button",
+    "label": "Add your first piece.",
+    "w": 194,
+    "h": 48,
+    "x": 98,
+    "y": 489,
+    "visible": true,
+    "disabled": false
+   },
+   {
+    "role": "tab",
+    "label": "Today",
+    "w": 78,
+    "h": 63,
+    "x": 0,
+    "y": 781,
+    "visible": true,
+    "disabled": false
+   },
+   {
+    "role": "tab",
+    "label": "Events",
+    "w": 78,
+    "h": 63,
+    "x": 78,
+    "y": 781,
+    "visible": true,
+    "disabled": false
+   },
+   {
+    "role": "tab",
+    "label": "Closet",
+    "w": 78,
+    "h": 63,
+    "x": 156,
+    "y": 781,
+    "visible": true,
+    "disabled": false
+   },
+   {
+    "role": "tab",
+    "label": "Saved",
+    "w": 78,
+    "h": 63,
+    "x": 234,
+    "y": 781,
+    "visible": true,
+    "disabled": false
+   },
+   {
+    "role": "tab",
+    "label": "You",
+    "w": 78,
+    "h": 63,
+    "x": 312,
+    "y": 781,
+    "visible": true,
+    "disabled": false
+   },
+   {
+    "role": "button",
+    "label": "Ask Iris",
+    "w": 68,
+    "h": 78,
+    "x": 306,
+    "y": 678,
+    "visible": true,
+    "disabled": false
+   }
+  ],
+  "errors": 0
+ },
+ {
+  "id": "closet-add-sheet",
+  "group": "Closet",
+  "title": "Add a piece — sheet",
+  "route": "/closet",
+  "path": "/closet",
+  "file": "screens/closet-add-sheet.png",
+  "links": {
+   "Take a photo": "closet-tag",
+   "Pick a photo": "closet-tag",
+   "Paste a link": "closet-tag",
+   "Close sheet": "closet-empty",
+   "Close": "closet-empty",
+   "Choose from library": "closet-tag"
+  },
+  "targets": [
+   {
+    "role": "button",
+    "label": "Add a piece",
+    "w": 36,
+    "h": 36,
+    "x": 286,
+    "y": 10,
+    "visible": true,
+    "disabled": false
+   },
+   {
+    "role": "button",
+    "label": "Notifications",
+    "w": 36,
+    "h": 36,
+    "x": 330,
+    "y": 10,
+    "visible": true,
+    "disabled": false
+   },
+   {
+    "role": "button",
+    "label": "Add your first piece.",
+    "w": 194,
+    "h": 48,
+    "x": 98,
+    "y": 489,
+    "visible": true,
+    "disabled": false
+   },
+   {
+    "role": "tab",
+    "label": "Today",
+    "w": 78,
+    "h": 63,
+    "x": 0,
+    "y": 781,
+    "visible": true,
+    "disabled": false
+   },
+   {
+    "role": "tab",
+    "label": "Events",
+    "w": 78,
+    "h": 63,
+    "x": 78,
+    "y": 781,
+    "visible": true,
+    "disabled": false
+   },
+   {
+    "role": "tab",
+    "label": "Closet",
+    "w": 78,
+    "h": 63,
+    "x": 156,
+    "y": 781,
+    "visible": true,
+    "disabled": false
+   },
+   {
+    "role": "tab",
+    "label": "Saved",
+    "w": 78,
+    "h": 63,
+    "x": 234,
+    "y": 781,
+    "visible": true,
+    "disabled": false
+   },
+   {
+    "role": "tab",
+    "label": "You",
+    "w": 78,
+    "h": 63,
+    "x": 312,
+    "y": 781,
+    "visible": true,
+    "disabled": false
+   },
+   {
+    "role": "button",
+    "label": "Ask Iris",
+    "w": 68,
+    "h": 78,
+    "x": 306,
+    "y": 678,
+    "visible": true,
+    "disabled": false
+   },
+   {
+    "role": "button",
+    "label": "Close",
+    "w": 32,
+    "h": 32,
+    "x": 334,
+    "y": 450,
+    "visible": true,
+    "disabled": false
+   },
+   {
+    "role": "button",
+    "label": "Take a photo\nSnap your piece — crop 1:1 ",
+    "w": 342,
+    "h": 84,
+    "x": 24,
+    "y": 536,
+    "visible": true,
+    "disabled": false
+   },
+   {
+    "role": "button",
+    "label": "Choose from library\nPick a photo — crop ",
+    "w": 342,
+    "h": 84,
+    "x": 24,
+    "y": 632,
+    "visible": true,
+    "disabled": false
+   },
+   {
+    "role": "button",
+    "label": "Paste a link\nFrom any shopping site",
+    "w": 342,
+    "h": 84,
+    "x": 24,
+    "y": 728,
+    "visible": true,
+    "disabled": false
+   }
+  ],
+  "errors": 0
+ },
+ {
+  "id": "closet-tag",
+  "group": "Closet",
+  "title": "Tag the piece",
+  "route": "/closet-tag",
+  "path": "/closet-tag",
+  "file": "screens/closet-tag.png",
+  "links": {
+   "Close": "closet-empty",
+   "Save piece": "closet-grid"
+  },
+  "targets": [
+   {
+    "role": "button",
+    "label": "Close",
+    "w": 36,
+    "h": 36,
+    "x": 24,
+    "y": 10,
+    "visible": true,
+    "disabled": false
+   },
+   {
+    "role": "button",
+    "label": "Top",
+    "w": 57,
+    "h": 38,
+    "x": 24,
+    "y": 118,
+    "visible": true,
+    "disabled": false
+   },
+   {
+    "role": "button",
+    "label": "Bottom",
+    "w": 81,
+    "h": 38,
+    "x": 89,
+    "y": 118,
+    "visible": true,
+    "disabled": false
+   },
+   {
+    "role": "button",
+    "label": "Dress",
+    "w": 73,
+    "h": 38,
+    "x": 178,
+    "y": 118,
+    "visible": true,
+    "disabled": false
+   },
+   {
+    "role": "button",
+    "label": "Outerwear",
+    "w": 104,
+    "h": 38,
+    "x": 259,
+    "y": 118,
+    "visible": true,
+    "disabled": false
+   },
+   {
+    "role": "button",
+    "label": "Shoes",
+    "w": 75,
+    "h": 38,
+    "x": 24,
+    "y": 164,
+    "visible": true,
+    "disabled": false
+   },
+   {
+    "role": "button",
+    "label": "Accessory",
+    "w": 105,
+    "h": 38,
+    "x": 107,
+    "y": 164,
+    "visible": true,
+    "disabled": false
+   },
+   {
+    "role": "button",
+    "label": "Neutral",
+    "w": 56,
+    "h": 66,
+    "x": 24,
+    "y": 248,
+    "visible": true,
+    "disabled": false
+   },
+   {
+    "role": "button",
+    "label": "Black",
+    "w": 56,
+    "h": 66,
+    "x": 88,
+    "y": 248,
+    "visible": true,
+    "disabled": false
+   },
+   {
+    "role": "button",
+    "label": "White",
+    "w": 56,
+    "h": 66,
+    "x": 152,
+    "y": 248,
+    "visible": true,
+    "disabled": false
+   },
+   {
+    "role": "button",
+    "label": "Blue",
+    "w": 56,
+    "h": 66,
+    "x": 216,
+    "y": 248,
+    "visible": true,
+    "disabled": false
+   },
+   {
+    "role": "button",
+    "label": "Earth",
+    "w": 56,
+    "h": 66,
+    "x": 280,
+    "y": 248,
+    "visible": true,
+    "disabled": false
+   },
+   {
+    "role": "button",
+    "label": "Green",
+    "w": 56,
+    "h": 66,
+    "x": 24,
+    "y": 322,
+    "visible": true,
+    "disabled": false
+   },
+   {
+    "role": "button",
+    "label": "Red",
+    "w": 56,
+    "h": 66,
+    "x": 88,
+    "y": 322,
+    "visible": true,
+    "disabled": false
+   },
+   {
+    "role": "button",
+    "label": "Pink",
+    "w": 56,
+    "h": 66,
+    "x": 152,
+    "y": 322,
+    "visible": true,
+    "disabled": false
+   },
+   {
+    "role": "button",
+    "label": "Multicolor",
+    "w": 56,
+    "h": 66,
+    "x": 216,
+    "y": 322,
+    "visible": true,
+    "disabled": false
+   },
+   {
+    "role": "button",
+    "label": "Other color",
+    "w": 56,
+    "h": 66,
+    "x": 280,
+    "y": 322,
+    "visible": true,
+    "disabled": false
+   },
+   {
+    "role": "button",
+    "label": "Long sleeve",
+    "w": 113,
+    "h": 38,
+    "x": 24,
+    "y": 434,
+    "visible": true,
+    "disabled": false
+   },
+   {
+    "role": "button",
+    "label": "Short sleeve",
+    "w": 117,
+    "h": 38,
+    "x": 145,
+    "y": 434,
+    "visible": true,
+    "disabled": false
+   },
+   {
+    "role": "button",
+    "label": "Sleeveless",
+    "w": 107,
+    "h": 38,
+    "x": 24,
+    "y": 480,
+    "visible": true,
+    "disabled": false
+   },
+   {
+    "role": "button",
+    "label": "Modest-safe",
+    "w": 120,
+    "h": 38,
+    "x": 139,
+    "y": 480,
+    "visible": true,
+    "disabled": false
+   },
+   {
+    "role": "button",
+    "label": "Any occasion",
+    "w": 124,
+    "h": 38,
+    "x": 24,
+    "y": 564,
+    "visible": true,
+    "disabled": false
+   },
+   {
+    "role": "button",
+    "label": "💼️\nWork",
+    "w": 94,
+    "h": 38,
+    "x": 156,
+    "y": 564,
+    "visible": true,
+    "disabled": false
+   },
+   {
+    "role": "button",
+    "label": "🥂️\nDinner",
+    "w": 103,
+    "h": 38,
+    "x": 258,
+    "y": 564,
+    "visible": true,
+    "disabled": false
+   },
+   {
+    "role": "button",
+    "label": "💍️\nWedding",
+    "w": 120,
+    "h": 38,
+    "x": 24,
+    "y": 610,
+    "visible": true,
+    "disabled": false
+   },
+   {
+    "role": "button",
+    "label": "✈️\nTrip",
+    "w": 86,
+    "h": 38,
+    "x": 152,
+    "y": 610,
+    "visible": true,
+    "disabled": false
+   },
+   {
+    "role": "button",
+    "label": "🎉️\nParty",
+    "w": 95,
+    "h": 38,
+    "x": 246,
+    "y": 610,
+    "visible": true,
+    "disabled": false
+   },
+   {
+    "role": "button",
+    "label": "❤️\nDate",
+    "w": 91,
+    "h": 38,
+    "x": 24,
+    "y": 656,
+    "visible": true,
+    "disabled": false
+   },
+   {
+    "role": "button",
+    "label": "🍳️\nBrunch",
+    "w": 106,
+    "h": 38,
+    "x": 123,
+    "y": 656,
+    "visible": true,
+    "disabled": false
+   },
+   {
+    "role": "button",
+    "label": "Other",
+    "w": 71,
+    "h": 38,
+    "x": 237,
+    "y": 656,
+    "visible": true,
+    "disabled": false
+   },
+   {
+    "role": "button",
+    "label": "Save piece",
+    "w": 342,
+    "h": 56,
+    "x": 24,
+    "y": 764,
+    "visible": true,
+    "disabled": false
+   }
+  ],
+  "errors": 0
+ },
+ {
+  "id": "closet-grid",
+  "group": "Closet",
+  "title": "Closet — 3 pieces",
+  "route": "/closet",
+  "path": "/closet",
+  "file": "screens/closet-grid.png",
+  "links": {
+   "Add a piece": "closet-add-sheet",
+   "Wardrobe piece": "piece-detail",
+   "Today": "today-1",
+   "Events": "events-empty",
+   "Closet": "closet-empty",
+   "Saved": "saved-empty",
+   "You": "you",
+   "Ask Iris": "stylist"
+  },
+  "targets": [
+   {
+    "role": "button",
+    "label": "Add a piece",
+    "w": 36,
+    "h": 36,
+    "x": 286,
+    "y": 10,
+    "visible": true,
+    "disabled": false
+   },
+   {
+    "role": "button",
+    "label": "Notifications",
+    "w": 36,
+    "h": 36,
+    "x": 330,
+    "y": 10,
+    "visible": true,
+    "disabled": false
+   },
+   {
+    "role": "button",
+    "label": "Add a piece",
+    "w": 342,
+    "h": 56,
+    "x": 24,
+    "y": 116,
+    "visible": true,
+    "disabled": false
+   },
+   {
+    "role": "button",
+    "label": "Wardrobe piece",
+    "w": 144,
+    "h": 144,
+    "x": 24,
+    "y": 232,
+    "visible": true,
+    "disabled": false
+   },
+   {
+    "role": "button",
+    "label": "Remove from favorites",
+    "w": 32,
+    "h": 32,
+    "x": 123,
+    "y": 245,
+    "visible": true,
+    "disabled": false
+   },
+   {
+    "role": "button",
+    "label": "Wardrobe piece",
+    "w": 144,
+    "h": 144,
+    "x": 24,
+    "y": 436,
+    "visible": true,
+    "disabled": false
+   },
+   {
+    "role": "button",
+    "label": "Add to favorites",
+    "w": 32,
+    "h": 32,
+    "x": 123,
+    "y": 449,
+    "visible": true,
+    "disabled": false
+   },
+   {
+    "role": "button",
+    "label": "Wardrobe piece",
+    "w": 144,
+    "h": 144,
+    "x": 24,
+    "y": 640,
+    "visible": true,
+    "disabled": false
+   },
+   {
+    "role": "button",
+    "label": "Add to favorites",
+    "w": 32,
+    "h": 32,
+    "x": 123,
+    "y": 653,
+    "visible": true,
+    "disabled": false
+   },
+   {
+    "role": "tab",
+    "label": "Today",
+    "w": 78,
+    "h": 63,
+    "x": 0,
+    "y": 781,
+    "visible": true,
+    "disabled": false
+   },
+   {
+    "role": "tab",
+    "label": "Events",
+    "w": 78,
+    "h": 63,
+    "x": 78,
+    "y": 781,
+    "visible": true,
+    "disabled": false
+   },
+   {
+    "role": "tab",
+    "label": "Closet",
+    "w": 78,
+    "h": 63,
+    "x": 156,
+    "y": 781,
+    "visible": true,
+    "disabled": false
+   },
+   {
+    "role": "tab",
+    "label": "Saved",
+    "w": 78,
+    "h": 63,
+    "x": 234,
+    "y": 781,
+    "visible": true,
+    "disabled": false
+   },
+   {
+    "role": "tab",
+    "label": "You",
+    "w": 78,
+    "h": 63,
+    "x": 312,
+    "y": 781,
+    "visible": true,
+    "disabled": false
+   },
+   {
+    "role": "button",
+    "label": "Ask Iris",
+    "w": 68,
+    "h": 78,
+    "x": 306,
+    "y": 678,
+    "visible": true,
+    "disabled": false
+   }
+  ],
+  "errors": 0
+ },
+ {
+  "id": "piece-detail",
+  "group": "Closet",
+  "title": "Piece detail",
+  "route": "/piece/w1",
+  "path": "/piece/w1",
+  "file": "screens/piece-detail.png",
+  "links": {
+   "Back": "closet-grid",
+   "See it on you": "try-on",
+   "Edit tags": "closet-tag"
+  },
+  "targets": [
+   {
+    "role": "button",
+    "label": "Back",
+    "w": 36,
+    "h": 36,
+    "x": 16,
+    "y": 12,
+    "visible": true,
+    "disabled": false
+   },
+   {
+    "role": "button",
+    "label": "Add photo",
+    "w": 342,
+    "h": 48,
+    "x": 24,
+    "y": 661,
+    "visible": true,
+    "disabled": false
+   },
+   {
+    "role": "button",
+    "label": "Edit tags",
+    "w": 100,
+    "h": 28,
+    "x": 24,
+    "y": 733,
+    "visible": true,
+    "disabled": false
+   },
+   {
+    "role": "button",
+    "label": "Remove from closet",
+    "w": 342,
+    "h": 48,
+    "x": 24,
+    "y": 809,
+    "visible": true,
+    "disabled": false
+   }
+  ],
+  "errors": 0
+ },
+ {
+  "id": "try-on",
+  "group": "Closet",
+  "title": "Try-on",
+  "route": "/try-on/w1",
+  "path": "/try-on/w1",
+  "file": "screens/try-on.png",
+  "links": {
+   "Back": "piece-detail"
+  },
+  "targets": [
+   {
+    "role": "button",
+    "label": "Back",
+    "w": 36,
+    "h": 36,
+    "x": 16,
+    "y": 12,
+    "visible": true,
+    "disabled": false
+   }
+  ],
+  "errors": 0
+ },
+ {
+  "id": "you",
+  "group": "You",
+  "title": "You",
+  "route": "/you",
+  "path": "/you",
+  "file": "screens/you.png",
+  "links": {
+   "Complete your profile": "profile-photos",
+   "Profile photos": "profile-photos",
+   "Always honor": "always-honor",
+   "Today": "today-1",
+   "Events": "events-empty",
+   "Closet": "closet-empty",
+   "Saved": "saved-empty",
+   "You": "you",
+   "Ask Iris": "stylist"
+  },
+  "targets": [
+   {
+    "role": "button",
+    "label": "",
+    "w": 110,
+    "h": 28,
+    "x": 177,
+    "y": 12,
+    "visible": true,
+    "disabled": false
+   },
+   {
+    "role": "button",
+    "label": "",
+    "w": 157,
+    "h": 28,
+    "x": 177,
+    "y": 48,
+    "visible": true,
+    "disabled": false
+   },
+   {
+    "role": "button",
+    "label": "",
+    "w": 189,
+    "h": 28,
+    "x": 177,
+    "y": 84,
+    "visible": true,
+    "disabled": false
+   },
+   {
+    "role": "button",
+    "label": "",
+    "w": 141,
+    "h": 28,
+    "x": 177,
+    "y": 120,
+    "visible": true,
+    "disabled": false
+   },
+   {
+    "role": "button",
+    "label": "Complete your profile",
+    "w": 342,
+    "h": 48,
+    "x": 24,
+    "y": 393,
+    "visible": true,
+    "disabled": false
+   },
+   {
+    "role": "button",
+    "label": "Profile photos",
+    "w": 342,
+    "h": 56,
+    "x": 24,
+    "y": 526,
+    "visible": true,
+    "disabled": false
+   },
+   {
+    "role": "button",
+    "label": "Always honor\nNot set yet",
+    "w": 342,
+    "h": 60,
+    "x": 24,
+    "y": 582,
+    "visible": true,
+    "disabled": false
+   },
+   {
+    "role": "tab",
+    "label": "Today",
+    "w": 78,
+    "h": 63,
+    "x": 0,
+    "y": 781,
+    "visible": true,
+    "disabled": false
+   },
+   {
+    "role": "tab",
+    "label": "Events",
+    "w": 78,
+    "h": 63,
+    "x": 78,
+    "y": 781,
+    "visible": true,
+    "disabled": false
+   },
+   {
+    "role": "tab",
+    "label": "Closet",
+    "w": 78,
+    "h": 63,
+    "x": 156,
+    "y": 781,
+    "visible": true,
+    "disabled": false
+   },
+   {
+    "role": "tab",
+    "label": "Saved",
+    "w": 78,
+    "h": 63,
+    "x": 234,
+    "y": 781,
+    "visible": true,
+    "disabled": false
+   },
+   {
+    "role": "tab",
+    "label": "You",
+    "w": 78,
+    "h": 63,
+    "x": 312,
+    "y": 781,
+    "visible": true,
+    "disabled": false
+   },
+   {
+    "role": "button",
+    "label": "Ask Iris",
+    "w": 68,
+    "h": 78,
+    "x": 306,
+    "y": 678,
+    "visible": true,
+    "disabled": false
+   }
+  ],
+  "errors": 0
+ },
+ {
+  "id": "profile-photos",
+  "group": "You",
+  "title": "Profile photos",
+  "route": "/profile-photos",
+  "path": "/profile-photos",
+  "file": "screens/profile-photos.png",
+  "links": {
+   "Back": "you"
+  },
+  "targets": [
+   {
+    "role": "button",
+    "label": "Back",
+    "w": 36,
+    "h": 36,
+    "x": 16,
+    "y": 12,
+    "visible": true,
+    "disabled": false
+   },
+   {
+    "role": "button",
+    "label": "Add a headshot",
+    "w": 342,
+    "h": 124,
+    "x": 24,
+    "y": 125,
+    "visible": true,
+    "disabled": false
+   },
+   {
+    "role": "button",
+    "label": "Add a full-body photo",
+    "w": 342,
+    "h": 124,
+    "x": 24,
+    "y": 561,
+    "visible": true,
+    "disabled": false
+   }
+  ],
+  "errors": 0
+ },
+ {
+  "id": "always-honor",
+  "group": "You",
+  "title": "Always honor",
+  "route": "/always-honor",
+  "path": "/always-honor",
+  "file": "screens/always-honor.png",
+  "links": {
+   "Back": "you"
+  },
+  "targets": [
+   {
+    "role": "button",
+    "label": "Back",
+    "w": 36,
+    "h": 36,
+    "x": 16,
+    "y": 12,
+    "visible": true,
+    "disabled": false
+   },
+   {
+    "role": "button",
+    "label": "Woman",
+    "w": 81,
+    "h": 38,
+    "x": 24,
+    "y": 119,
+    "visible": true,
+    "disabled": false
+   },
+   {
+    "role": "button",
+    "label": "Man",
+    "w": 63,
+    "h": 38,
+    "x": 113,
+    "y": 119,
+    "visible": true,
+    "disabled": false
+   },
+   {
+    "role": "button",
+    "label": "Non-binary",
+    "w": 109,
+    "h": 38,
+    "x": 184,
+    "y": 119,
+    "visible": true,
+    "disabled": false
+   },
+   {
+    "role": "button",
+    "label": "Self-describe",
+    "w": 125,
+    "h": 38,
+    "x": 24,
+    "y": 165,
+    "visible": true,
+    "disabled": false
+   },
+   {
+    "role": "button",
+    "label": "Prefer not to say",
+    "w": 144,
+    "h": 38,
+    "x": 157,
+    "y": 165,
+    "visible": true,
+    "disabled": false
+   },
+   {
+    "role": "button",
+    "label": "Hijab / modest",
+    "w": 130,
+    "h": 38,
+    "x": 24,
+    "y": 301,
+    "visible": true,
+    "disabled": false
+   },
+   {
+    "role": "button",
+    "label": "Saree",
+    "w": 72,
+    "h": 38,
+    "x": 162,
+    "y": 301,
+    "visible": true,
+    "disabled": false
+   },
+   {
+    "role": "button",
+    "label": "Seated / wheelchair fit",
+    "w": 185,
+    "h": 38,
+    "x": 24,
+    "y": 347,
+    "visible": true,
+    "disabled": false
+   },
+   {
+    "role": "button",
+    "label": "One-handed dressing",
+    "w": 180,
+    "h": 38,
+    "x": 24,
+    "y": 393,
+    "visible": true,
+    "disabled": false
+   },
+   {
+    "role": "button",
+    "label": "Sensory-friendly",
+    "w": 144,
+    "h": 38,
+    "x": 212,
+    "y": 393,
+    "visible": true,
+    "disabled": false
+   }
+  ],
+  "errors": 0
+ },
+ {
+  "id": "stylist",
+  "group": "Iris",
+  "title": "Iris — greeting",
+  "route": "/stylist",
+  "path": "/stylist",
+  "file": "screens/stylist.png",
+  "links": {
+   "Close": "today-1",
+   "Style my next event": "moment-composer",
+   "What goes with": "stylist-typed",
+   "Attach a photo": "stylist-attach-sheet",
+   "Ask Iris anything": "stylist-typed"
+  },
+  "targets": [
+   {
+    "role": "button",
+    "label": "Close",
+    "w": 36,
+    "h": 36,
+    "x": 330,
+    "y": 10,
+    "visible": true,
+    "disabled": false
+   },
+   {
+    "role": "button",
+    "label": "Style my next event",
+    "w": 166,
+    "h": 38,
+    "x": 24,
+    "y": 220,
+    "visible": true,
+    "disabled": false
+   },
+   {
+    "role": "button",
+    "label": "What goes with…",
+    "w": 152,
+    "h": 38,
+    "x": 198,
+    "y": 220,
+    "visible": true,
+    "disabled": false
+   },
+   {
+    "role": "button",
+    "label": "Attach a photo",
+    "w": 36,
+    "h": 36,
+    "x": 32,
+    "y": 790,
+    "visible": true,
+    "disabled": false
+   },
+   {
+    "role": "textarea",
+    "label": "Ask Iris anything…",
+    "w": 238,
+    "h": 44,
+    "x": 76,
+    "y": 786,
+    "visible": true,
+    "disabled": false
+   },
+   {
+    "role": "button",
+    "label": "Send message",
+    "w": 36,
+    "h": 36,
+    "x": 330,
+    "y": 790,
+    "visible": true,
+    "disabled": true
+   }
+  ],
+  "errors": 0
+ },
+ {
+  "id": "stylist-typed",
+  "group": "Iris",
+  "title": "Iris — message typed",
+  "route": "/stylist",
+  "path": "/stylist",
+  "file": "screens/stylist-typed.png",
+  "links": {
+   "Send message": "stylist-thinking",
+   "Close": "today-1"
+  },
+  "targets": [
+   {
+    "role": "button",
+    "label": "Close",
+    "w": 36,
+    "h": 36,
+    "x": 330,
+    "y": 10,
+    "visible": true,
+    "disabled": false
+   },
+   {
+    "role": "button",
+    "label": "Style my next event",
+    "w": 166,
+    "h": 38,
+    "x": 24,
+    "y": 220,
+    "visible": true,
+    "disabled": false
+   },
+   {
+    "role": "button",
+    "label": "What goes with…",
+    "w": 152,
+    "h": 38,
+    "x": 198,
+    "y": 220,
+    "visible": true,
+    "disabled": false
+   },
+   {
+    "role": "button",
+    "label": "Attach a photo",
+    "w": 36,
+    "h": 36,
+    "x": 32,
+    "y": 790,
+    "visible": true,
+    "disabled": false
+   },
+   {
+    "role": "textarea",
+    "label": "Ask Iris anything…",
+    "w": 238,
+    "h": 44,
+    "x": 76,
+    "y": 786,
+    "visible": true,
+    "disabled": false
+   },
+   {
+    "role": "button",
+    "label": "Send message",
+    "w": 36,
+    "h": 36,
+    "x": 330,
+    "y": 790,
+    "visible": true,
+    "disabled": false
+   }
+  ],
+  "errors": 0
+ },
+ {
+  "id": "stylist-thinking",
+  "group": "Iris",
+  "title": "Iris — thinking",
+  "route": "/stylist",
+  "path": "/stylist",
+  "file": "screens/stylist-thinking.png",
+  "links": {
+   "Close": "today-1"
+  },
+  "timeoutTo": "stylist-reply",
+  "targets": [
+   {
+    "role": "button",
+    "label": "Close",
+    "w": 36,
+    "h": 36,
+    "x": 330,
+    "y": 10,
+    "visible": true,
+    "disabled": false
+   },
+   {
+    "role": "button",
+    "label": "Style my next event",
+    "w": 166,
+    "h": 38,
+    "x": 24,
+    "y": 220,
+    "visible": true,
+    "disabled": false
+   },
+   {
+    "role": "button",
+    "label": "What goes with…",
+    "w": 152,
+    "h": 38,
+    "x": 198,
+    "y": 220,
+    "visible": true,
+    "disabled": false
+   },
+   {
+    "role": "button",
+    "label": "Attach a photo",
+    "w": 36,
+    "h": 36,
+    "x": 32,
+    "y": 790,
+    "visible": true,
+    "disabled": false
+   },
+   {
+    "role": "textarea",
+    "label": "Ask Iris anything…",
+    "w": 238,
+    "h": 44,
+    "x": 76,
+    "y": 786,
+    "visible": true,
+    "disabled": false
+   },
+   {
+    "role": "button",
+    "label": "Send message",
+    "w": 36,
+    "h": 36,
+    "x": 330,
+    "y": 790,
+    "visible": true,
+    "disabled": true
+   }
+  ],
+  "errors": 0
+ },
+ {
+  "id": "stylist-reply",
+  "group": "Iris",
+  "title": "Iris — scripted reply",
+  "route": "/stylist",
+  "path": "/stylist",
+  "file": "screens/stylist-reply.png",
+  "links": {
+   "Style this moment": "moment-composer",
+   "Open my closet": "closet-empty",
+   "Close": "today-1",
+   "Attach a photo": "stylist-attach-sheet"
+  },
+  "targets": [
+   {
+    "role": "button",
+    "label": "Close",
+    "w": 36,
+    "h": 36,
+    "x": 330,
+    "y": 10,
+    "visible": true,
+    "disabled": false
+   },
+   {
+    "role": "button",
+    "label": "Style my next event",
+    "w": 166,
+    "h": 38,
+    "x": 24,
+    "y": 220,
+    "visible": true,
+    "disabled": false
+   },
+   {
+    "role": "button",
+    "label": "What goes with…",
+    "w": 152,
+    "h": 38,
+    "x": 198,
+    "y": 220,
+    "visible": true,
+    "disabled": false
+   },
+   {
+    "role": "button",
+    "label": "Style this moment",
+    "w": 154,
+    "h": 38,
+    "x": 24,
+    "y": 522,
+    "visible": true,
+    "disabled": false
+   },
+   {
+    "role": "button",
+    "label": "Open my closet",
+    "w": 139,
+    "h": 38,
+    "x": 186,
+    "y": 522,
+    "visible": true,
+    "disabled": false
+   },
+   {
+    "role": "button",
+    "label": "Attach a photo",
+    "w": 36,
+    "h": 36,
+    "x": 32,
+    "y": 790,
+    "visible": true,
+    "disabled": false
+   },
+   {
+    "role": "textarea",
+    "label": "Ask Iris anything…",
+    "w": 238,
+    "h": 44,
+    "x": 76,
+    "y": 786,
+    "visible": true,
+    "disabled": false
+   },
+   {
+    "role": "button",
+    "label": "Send message",
+    "w": 36,
+    "h": 36,
+    "x": 330,
+    "y": 790,
+    "visible": true,
+    "disabled": true
+   }
+  ],
+  "errors": 0
+ },
+ {
+  "id": "stylist-attach-sheet",
+  "group": "Iris",
+  "title": "Iris — attach a photo",
+  "route": "/stylist",
+  "path": "/stylist",
+  "file": "screens/stylist-attach-sheet.png",
+  "links": {
+   "Close sheet": "stylist",
+   "Close": "stylist"
+  },
+  "targets": [
+   {
+    "role": "button",
+    "label": "Close",
+    "w": 36,
+    "h": 36,
+    "x": 330,
+    "y": 10,
+    "visible": true,
+    "disabled": false
+   },
+   {
+    "role": "button",
+    "label": "Style my next event",
+    "w": 166,
+    "h": 38,
+    "x": 24,
+    "y": 220,
+    "visible": true,
+    "disabled": false
+   },
+   {
+    "role": "button",
+    "label": "What goes with…",
+    "w": 152,
+    "h": 38,
+    "x": 198,
+    "y": 220,
+    "visible": true,
+    "disabled": false
+   },
+   {
+    "role": "button",
+    "label": "Attach a photo",
+    "w": 36,
+    "h": 36,
+    "x": 32,
+    "y": 790,
+    "visible": true,
+    "disabled": false
+   },
+   {
+    "role": "textarea",
+    "label": "Ask Iris anything…",
+    "w": 238,
+    "h": 44,
+    "x": 76,
+    "y": 786,
+    "visible": true,
+    "disabled": false
+   },
+   {
+    "role": "button",
+    "label": "Send message",
+    "w": 36,
+    "h": 36,
+    "x": 330,
+    "y": 790,
+    "visible": true,
+    "disabled": true
+   },
+   {
+    "role": "button",
+    "label": "Close sheet",
+    "w": 36,
+    "h": 36,
+    "x": 342,
+    "y": 627,
+    "visible": true,
+    "disabled": false
+   },
+   {
+    "role": "button",
+    "label": "Take a photo\nFor pieces you're thinking ",
+    "w": 342,
+    "h": 61,
+    "x": 24,
+    "y": 691,
+    "visible": true,
+    "disabled": false
+   },
+   {
+    "role": "button",
+    "label": "Upload from library\nA screenshot or a sa",
+    "w": 342,
+    "h": 60,
+    "x": 24,
+    "y": 752,
+    "visible": true,
+    "disabled": false
+   }
+  ],
+  "errors": 0
+ },
+ {
+  "id": "moment-composer",
+  "group": "Iris",
+  "title": "Moment composer",
+  "route": "/moment-composer",
+  "path": "/moment-composer",
+  "file": "screens/moment-composer.png",
+  "links": {
+   "Back": "stylist",
+   "Send": "moment-composer-reply"
+  },
+  "targets": [
+   {
+    "role": "button",
+    "label": "Back",
+    "w": 36,
+    "h": 36,
+    "x": 16,
+    "y": 12,
+    "visible": true,
+    "disabled": false
+   },
+   {
+    "role": "textarea",
+    "label": "I have a wedding next Saturday…",
+    "w": 251,
+    "h": 70,
+    "x": 24,
+    "y": 221,
+    "visible": true,
+    "disabled": false
+   },
+   {
+    "role": "button",
+    "label": "Send",
+    "w": 79,
+    "h": 48,
+    "x": 287,
+    "y": 221,
+    "visible": true,
+    "disabled": true
+   }
+  ],
+  "errors": 0
+ },
+ {
+  "id": "moment-composer-reply",
+  "group": "Iris",
+  "title": "Moment composer — Iris parsed it",
+  "route": "/moment-composer",
+  "path": "/moment-composer",
+  "file": "screens/moment-composer-reply.png",
+  "links": {
+   "Back": "stylist",
+   "Set": "moment-composer-dress"
+  },
+  "targets": [
+   {
+    "role": "button",
+    "label": "Back",
+    "w": 36,
+    "h": 36,
+    "x": 16,
+    "y": 12,
+    "visible": true,
+    "disabled": false
+   },
+   {
+    "role": "button",
+    "label": "🥂️ Dinner",
+    "w": 103,
+    "h": 46,
+    "x": 263,
+    "y": 309,
+    "visible": true,
+    "disabled": false
+   },
+   {
+    "role": "button",
+    "label": "Fri, Oct 2",
+    "w": 97,
+    "h": 46,
+    "x": 269,
+    "y": 375,
+    "visible": true,
+    "disabled": false
+   },
+   {
+    "role": "input",
+    "label": "City",
+    "w": 274,
+    "h": 48,
+    "x": 24,
+    "y": 557,
+    "visible": true,
+    "disabled": false
+   },
+   {
+    "role": "button",
+    "label": "Set",
+    "w": 64,
+    "h": 48,
+    "x": 310,
+    "y": 557,
+    "visible": true,
+    "disabled": true
+   }
+  ],
+  "errors": 0
+ }
+]

@@ -1,22 +1,26 @@
 import { Tabs } from 'expo-router';
 import { Calendar, Heart, Shirt, Sun, UserCircle } from 'lucide-react-native';
 import type { ComponentType } from 'react';
-import { Platform, StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View } from 'react-native';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 import { IrisFAB } from '@/components/IrisFAB';
 import { theme } from '@/constants/theme';
 
 type LucideIcon = ComponentType<{ size?: number; color?: string; strokeWidth?: number }>;
 
-const tabIcon =
-  (Icon: LucideIcon) =>
-  ({ color, focused }: { color: string; focused: boolean }) => (
+// Named inner components so react/display-name is satisfied and React DevTools
+// shows "TabIcon"/"TabLabel" instead of anonymous functions.
+const tabIcon = (Icon: LucideIcon) => {
+  const TabIcon = ({ color, focused }: { color: string; focused: boolean }) => (
     <Icon
       size={theme.inlineIcon.size.tabBar}
       color={color}
       strokeWidth={focused ? 1.9 : 1.75}
     />
   );
+  return TabIcon;
+};
 
 // Saved tab Heart: stroke-only, NEVER filled regardless of state.
 // Rust fill is reserved for the SaveButton on individual outfits/pieces.
@@ -30,9 +34,8 @@ const SavedTabIcon = ({ color }: { color: string; focused: boolean }) => (
   />
 );
 
-const tabLabel =
-  (label: string) =>
-  ({ focused, color }: { focused: boolean; color: string }) => (
+const tabLabel = (label: string) => {
+  const TabLabel = ({ focused, color }: { focused: boolean; color: string }) => (
     <Text
       style={[
         styles.label,
@@ -46,8 +49,17 @@ const tabLabel =
       {label}
     </Text>
   );
+  return TabLabel;
+};
 
 export default function TabsLayout() {
+  // QA FIX EXPERIMENT #3: the previous fixed height (64 + 12/24) plus an extra
+  // 8px bar paddingTop and 8px item paddingVertical left only ~41px for a
+  // 24px icon + 4px gap + 16px label (48px needed), so the label Text was
+  // flex-shrunk to 9px and clipped. DESIGN_SYSTEM §7.6 is "64px + safe area"
+  // — so size the bar from the live bottom inset and drop the extra paddings
+  // (react-navigation already applies its own 5px item padding).
+  const insets = useSafeAreaInsets();
   return (
     <View style={styles.root}>
       <Tabs
@@ -55,8 +67,10 @@ export default function TabsLayout() {
           headerShown: false,
           tabBarActiveTintColor: theme.color.ink.primary,
           tabBarInactiveTintColor: theme.color.ink.tertiary,
-          tabBarStyle: styles.bar,
-          tabBarItemStyle: styles.item,
+          tabBarStyle: [
+            styles.bar,
+            { height: theme.layout.tabBarHeight + insets.bottom },
+          ],
           tabBarLabelPosition: 'below-icon',
           sceneStyle: { backgroundColor: theme.color.bg.primary },
         }}
@@ -100,13 +114,8 @@ const styles = StyleSheet.create({
     backgroundColor: theme.color.bg.primary,
     borderTopColor: theme.color.border.light,
     borderTopWidth: StyleSheet.hairlineWidth,
-    height: theme.layout.tabBarHeight + (Platform.OS === 'ios' ? 24 : 12),
-    paddingTop: theme.space[2],
     elevation: 0,
     shadowOpacity: 0,
-  },
-  item: {
-    paddingVertical: theme.space[2],
   },
   label: {
     fontSize: theme.font.label.sm.fontSize,

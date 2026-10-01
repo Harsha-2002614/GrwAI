@@ -1,6 +1,6 @@
 # GRWAI — Build Specification
 
-**Companion to `DESIGN_SYSTEM.md` v1.4 · Read both together**
+**Companion to `DESIGN_SYSTEM.md` v1.7 · Read both together**
 
 This file describes every screen, flow, and integration in the Get Ready with AI (GRWAI) app. `DESIGN_SYSTEM.md` defines the visual primitives (color, type, spacing, components); this file describes how those primitives compose into screens.
 
@@ -188,41 +188,43 @@ Layout:
 When no events:
 - Center-aligned 64×64 soft icon container (calendar icon)
 - Headline (`display/sm`): "No moments yet." (no italic — utility moment)
-- Subhead (`body/md` ink/secondary): "Connect your calendar or add an event by hand. Iris styles the rest."
+- Subhead (`body/md` ink/secondary): "Connect your calendar or add an event manually. Iris styles the rest."
 - CTA: "Add a moment" (button/primary md)
 
 ### 5.2 Populated state
 
-**Header:** "Events" wordmark left, filter icon + search icon right (36×36 circular ghost buttons).
+**Header:** Sticky "Events" title left, bell icon top-right. In dev builds, a small "Empty" toggle pill sits next to the bell to flip the screen into its empty state for QA.
 
 **Hero block:**
-- Caps eyebrow: "5 MOMENTS THIS WEEK"
-- Display headline: "Your week, *composed* in advance." (italic word, `accent/rust`)
+- Display headline: "Your week, *composed* in advance" (italic word, `accent/rust`, no trailing period)
+- Subhead (`body/md` ink/secondary): event count summary, e.g., "5 moments · 1 trip · this month"
+- Primary button: "Add a moment" — opens the Add Event sheet (§5.3)
 
-**Segmented tabs:** `Upcoming 5` (active) · `Trips 1` · `Past 12`
+**Segmented tabs:** `Upcoming · N` (active) · `Trips · N` · `Past · 12`. Counts are derived from the in-memory events list; Past is mocked.
 
-**Featured event card:**
-- Large image with two floating tags:
-  - Top-left: "★ MOST IMPORTANT" (badge variant: `most-important`, dark pill)
-  - Top-right: "76° Clear" (overlay/light pill)
-- Below image:
-  - Caps label: "T-9D · MAR 27" (rust accent, two pieces of meta max per §11)
-  - Event title (`display/sm`): "Sister's wedding"
-  - Location row: map-pin + "Napa Valley · Outdoor · 4:30pm"
-  - Two buttons: "📖 See the look" (primary filled) + "↻ Remix" (secondary outline)
+**Every event card opens with an `EventMoodHeader`** (see `DESIGN_SYSTEM.md` §7.15): a 16:9 gradient placeholder keyed by category with centered caps label, top-left Lucide category icon, and bottom-right `ILLUSTRATION` mark. This block locks card geometry so chunk 7's photoreal scenes drop in without refactor.
 
-**This week section:**
-- Caps eyebrow + count badge "4"
-- Stack of event cards. Each shows:
-  - Date label (serif italic, e.g., "Today") + time meta + status badge right (`✓ Styled` green or `Needs prep` warning)
-  - Event title (`display/xs`, e.g., "Quarterly review")
-  - Location row with pin icon
-  - Inline outfit preview: 60×60 thumbnail + "TODAY'S PICK" caps + outfit name + weather chip
-  - Footer meta in ink/tertiary: "From Calendar", "From Resy", "From iMessage · Suggested"
+```
+┌──────────────────────────────────────┐
+│  [icon]                              │  ← 16:9 EventMoodHeader (gradient)
+│        WEDDING · VINEYARD            │
+│                          ILLUSTRATION│
+├──────────────────────────────────────┤
+│  T-9D · MAR 27                       │  ← caps countdown, rust
+│  Sister's wedding                    │  ← display/sm Playfair
+│  ↳ Napa Valley · Outdoor             │  ← map-pin row, body/sm
+│  ┌──────┐ TODAY'S PICK               │  ← outfit block (optional)
+│  │ 👗🥿 │ Garden Hour                │
+│  └──────┘ blush midi dress · …       │
+│  ADDED MANUALLY                      │  ← source meta, caps/xs tertiary
+└──────────────────────────────────────┘
+```
 
-For Tokyo trip: no preview thumbnail; instead a black filled CTA "Style this trip — 6-piece capsule" + footer "From Calendar · Trip detected".
+**Featured event:** the most-imminent upcoming event is prefixed with a small caps `FEATURED` label in rust above the card.
 
-**Bottom of list:** dashed-border button "+ Add an event" (full-width).
+**Trips tab:** trip cards include a `MULTI-DAY` caps badge inside the body above the title (in addition to the mood header, source meta, etc.).
+
+**Floating action button:** bottom-right, Plus icon, opens the Add Event sheet (§5.3).
 
 ### 5.3 Add Event flow
 
@@ -235,7 +237,7 @@ Tapping "+ Add an event" or empty state CTA opens a bottom sheet with three opti
 
 **Card 2 (light):**
 - Icon: rust-soft square with "+"
-- Title: "Add a moment by hand"
+- Title: "Add a moment manually"
 - Body: "Type or pick — wedding, trip, dinner, date. I'll style it."
 
 **Card 3 (light):**
@@ -255,28 +257,24 @@ Tapping Card 1 opens a privacy-first detail sheet:
   - ↔ "You choose write-back per event." We never write to your calendar without asking each time.
   - ⌫ "Disconnect anytime" from You · Connections. Your data leaves with you.
 - CTA: "Connect Google Calendar" (primary filled)
-- Text link: "Not yet — I'll add by hand"
+- Text link: "Not yet — I'll add manually"
 
 For v1, mock the OAuth — pressing "Connect" shows a 2-second loading state, then a success toast and adds 3 fake events to the eventsStore.
 
 ### 5.5 New moment sheet
 
-Tapping Card 2 opens the manual event form:
-- Header: Cancel left, "New moment" center, Save right
-- Display headline: "What's the *moment*?" ("moment" italic)
-- Text input (placeholder: "Anika's birthday brunch")
-- **Category chips row** (single-select, **emoji per §14 dual-icon rule**):  
-  💼 Work · 🥂 Dinner · 💍 Wedding · ✈️ Trip · 🎉 Party · ❤️ Date  
-  Always with `\uFE0F` variation selector
-- Caps eyebrow: "WHEN & WHERE"
-- Date picker row: "Sat, May 17 · 11:00 AM" + chevron
-- Location row: "Tartine · San Francisco" + chevron
-- Calendar sync card (warm bg):
-  - "G Google Calendar?" + "Last time: both" right
-  - Three segmented options: "GRWAI only / Stay private" · "Both / Two-way sync" (default, with rust DEFAULT badge above) · "Calendar only / Read, don't write"
-- Expandable accordion "I Tell Iris more (optional)":
-  - Vibe chips: Formal · Smart casual · Casual (active)
-- Sticky footer: "★ Style this moment" (primary filled)
+Tapping Card 2 opens the manual event form (full-screen modal, slides up):
+- Header: X close left, "New moment" center (display/xs, no italic — utility), "Save" right (disabled until title is filled)
+- Event title — full-width Input, placeholder "What's the moment?"
+- **CATEGORY** chips row (single-select, **emoji per §14 dual-icon rule**, `\uFE0F` variation selector required):  
+  💼 Work · 🥂 Dinner · 💍 Wedding · ✈️ Trip · 🎉 Party · ❤️ Date · 🍳 Brunch
+- **WHEN** — touchable row "Today · 2:00 PM ›" (body/md + chevron). Non-interactive placeholder for now.
+- **WHERE** — Input with leading MapPin icon, placeholder "Add location"
+- **SYNC** — small card with CalendarSync icon + "Add to Google Calendar" label + RN `Switch` on the right (defaults off, controlled state)
+- **VIBE (OPTIONAL)** — accordion. Collapsed: "Add context ›". Expanded: three multiline TextInputs ("Who will be there" / "What you want to project" / "Anything to avoid"), each min 80px tall.
+- Sticky footer: primary button "★ Style this moment" (Sparkles leading icon at strokeWidth 2). Disabled until title is filled. Tap → builds an Event from form values, appends to the in-memory events list, fires a success haptic, closes the modal.
+
+**Manual form date picker stubbed for now — wire `@react-native-community/datetimepicker` in polish chunk.** Saving uses `new Date() + 1 hour` as a placeholder start time until the picker lands.
 
 ---
 
@@ -344,6 +342,8 @@ Above input:
 
 ## 7. Screen 4 — Closet
 
+**Status:** Implemented (chunk 5) — empty state, populated state with category + Favorites filters, 2-column `PieceCard` grid, dev-only "Load mock" toggle, and Add-a-piece sheet stubbed with three options (Camera, Photo library, Link). Real upload flow deferred to chunk 6 onboarding.
+
 **Route:** `/(tabs)/closet`
 
 ### 7.1 Header
@@ -396,6 +396,8 @@ Each piece card:
 ---
 
 ## 8. Screen 5 — You (Profile)
+
+**Status:** Chunk 5 ships a stripped-down minimal version (avatar + name + `Complete your profile` CTA + italic helper line) intentionally. The full profile — Connections list, Styling preferences, Saved looks preview, Taste vector card, Figure card, Sign out — returns after chunk 6 onboarding ships, when there is real user data to display. Spec sections below describe the full target state.
 
 **Route:** `/(tabs)/you`
 
@@ -477,6 +479,19 @@ Each row: 24px app icon (leading) + name + status (right) + chevron.
 - Send feedback >
 - Terms · Privacy >
 - Version 1.0.0 (no chevron, ink/tertiary)
+
+### 8.7 Deferred sections (returning post-onboarding)
+
+The following sections of the full You profile are intentionally **not** in the chunk-5 build. Each waits on real user data that lands in chunk 6 (onboarding) or later:
+
+- **Connections list** — Google Calendar, Apple Health, Resy, iMessage, each with `Connect` / `Disconnect` affordances
+- **Styling preferences** — Sleeve length, color avoidance, formality, sustainability, budget bands
+- **Saved looks preview** — horizontal row of recent saves linking to the Saved tab
+- **Your taste vector card** — caps eyebrow + display headline + tone pills + `Recalibrate →`
+- **Your figure card** — face + body thumbs, render count, `Update photos` / `Switch to avatar`
+- **Sign out + version footer**
+
+When onboarding lands, restore in this order: figure card → taste vector → connections → styling preferences → saved-looks preview → sign out.
 
 ---
 
@@ -737,6 +752,101 @@ Per `DESIGN_SYSTEM.md` §15:
 10. Use `\uFE0F` variation selector on every emoji
 
 Build the components first (`/components/`), the theme is already provided (`/constants/theme.ts`), and the screens last. Once the design system is wired, screens become composition exercises.
+
+---
+
+## 16. Onboarding flow
+
+**Shipped in chunk 6a:** routing shell + screens 1–3. **Shipped in chunk 6b:** biometric capture + color analysis (screens 4–8). Screens 9–11 ship in chunk 6c (figure baseline, style swipes, ready).
+
+### 16.1 Shape
+
+Eleven screens, one column each. Top-aligned content, sticky bottom CTA on every screen that collects data. Screen 1 (Welcome) consolidates the value-prop card stack that previously lived on a dedicated "How it works" screen, via the Pinterest-style tilted-stack animation + breathing idle (front card only).
+
+| # | Route | Collects | Status |
+|---|---|---|---|
+| 1 | `/onboarding/welcome` | nothing — value pitch + tilted card stack | ✅ 6a |
+| 2 | `/onboarding/account` | email + password (auth stubbed) | ✅ 6a |
+| 3 | `/onboarding/name` | firstName + pronouns | ✅ 6a |
+| 4 | `/onboarding/face-intro` | nothing — primer for face photo | ✅ 6b |
+| 5 | `/onboarding/face-capture` | facePhotoUri | ✅ 6b |
+| 6 | `/onboarding/body-intro` | nothing — primer for body photo | ✅ 6b |
+| 7 | `/onboarding/body-capture` | bodyPhotoUri | ✅ 6b |
+| 8 | `/onboarding/color-analysis` | colorSeason, colorPalette | ✅ 6b |
+| 9 | `/onboarding/figure` | bodyShape, heightInches | 6c |
+| 10 | `/onboarding/style-swipes` | styleSwipeResponses | 6c |
+| 11 | `/onboarding/ready` | nothing — completes flag | 6c |
+
+### 16.2 Shared header
+
+`/app/onboarding/_layout.tsx` renders a fixed top header above the nested `Stack`:
+
+- **Left:** ChevronLeft (Lucide, 24px, stroke 1.75) — `router.back()`. Hidden on screen 1.
+- **Center:** `<ProgressDots total={11} current={index}>` — 11 dots at 6px diameter, 6px gap. Active = `ink/primary`, completed = `ink/primary` at 40% opacity, upcoming = `border/light`.
+- **Right:** `Skip` text (`body/sm`, `ink/tertiary`) — calls `skipOnboarding()` and `router.replace('/(tabs)')`. Hidden on screen 1.
+
+### 16.3 Soft-gate routing model
+
+Two persisted flags drive routing:
+
+- `hasCompletedOnboarding` — user finished all 12 screens
+- `hasSkippedOnboarding` — user exited early via the Skip affordance
+
+**On launch:**
+- If neither flag is true → redirect to `/onboarding/welcome` (handled in `/app/_layout.tsx` via `useEffect` after the persisted store hydrates)
+- Otherwise → stay on the default `/(tabs)`
+
+**On Today (`/app/(tabs)/index.tsx`):**
+- A small banner at the top of the scroll content shows **only** when `hasSkippedOnboarding && !hasCompletedOnboarding`. Copy: "Iris is half-trained — finish setup." Tap → `/onboarding/welcome`.
+
+### 16.4 Permissions are not in onboarding
+
+Calendar, location, notification, and photo-library permission prompts are intentionally **not** in this flow. They fire **contextually** at the moment the user first uses the feature that needs them — research-backed best practice for permission grant rates and trust. The onboarding flow surfaces the value pitch; permissions follow value.
+
+### 16.5 Persistence
+
+`/lib/stores/onboardingStore.ts` uses Zustand + `persist` middleware over AsyncStorage at key `@grwai/onboarding`. All collected fields are persisted; `isHydrated` is the only transient field. Password is **never** stored — auth lands in chunk 9.
+
+For dev/QA, the store exposes `resetOnboarding()` which clears every field and re-fires the soft gate on next launch.
+
+### 16.6 Biometric capture (screens 4–8)
+
+Five-screen arc shipped in chunk 6b: face-intro → face-capture → body-intro → body-capture → color-analysis. Both capture screens are camera-driven; both intro screens are trust-list primers; the color analysis screen is a deterministic reveal animation derived from the face photo URI.
+
+**Intro screens** (`face-intro`, `body-intro`)
+
+- Centered eyebrow `CapsLabel size="md" tone="secondary"` ("Building your stylist") + serif `display/lg` headline with a single rust `<Italic>` word ("scenes" / "figure").
+- Trust list: three rows (Eye / EyeOff / Lock from lucide, 18px, stroke 1.75). Each row pairs a `CapsLabel size="sm" tone="primary"` heading with a `body/sm` line.
+- Sticky footer with primary "Take photo" + tertiary "Skip for now".
+- Skip behavior:
+  - `__DEV__` → fills the relevant URI from a bundled placeholder JPEG under `/assets/onboarding-placeholders/` so QA can step through the rest of the flow.
+  - Production → sets `hasSkippedPhotos=true` and leaves the URI null; body-intro's skip routes straight to `/(tabs)` when face was also skipped (nothing to analyze).
+
+**Capture screens** (`face-capture`, `body-capture`)
+
+- `CameraView` from `expo-camera` (`facing="front"`, `flash="off"`), full-bleed inside a rounded `theme.radius.lg` frame, with a `pointerEvents="none"` pose guide overlay:
+  - Face: 240×320 vertical ellipse (border-radius = width/2), white 2px stroke.
+  - Body: 240×440 rectangle, `theme.radius.xl` corners, white 2px stroke.
+- Three permission states served inline via a `PermissionPrimer` subcomponent: `undetermined` (request), `denied` (Skip for now → back to intro), `granted` (camera).
+- Capture button: 72px ring + 56px inner circle, both `ink/inverse`, with `Haptics.ImpactFeedbackStyle.Medium` on press and a `scale(0.95)` press state.
+- After capture, the same frame swaps to an `expo-image` preview with `Retake` (secondary) + `Use this photo` (primary). "Use this photo" copies the temp file to a permanent location via `/lib/photoStorage.ts` (expo-file-system v19 `File`/`Directory`/`Paths` API; file lives at `Paths.document/photos/<type>-photo.jpg`), then advances.
+- Face-capture also runs `analyzeFromUri()` and persists `colorSeason` + `colorPalette` immediately, so re-entering the color-analysis screen short-circuits the loader.
+
+**Color analysis** (`color-analysis`)
+
+- Two-phase render with Reanimated cross-fade. Loading phase (2500ms) shows a 32px Sparkles glyph (stroke 2) pulsing between scale 1.0 ↔ 1.05 (1500ms each direction, `Easing.bezier(0.4, 0, 0.6, 1)`, `withRepeat(-1, true)`) above a serif headline "Iris is analyzing…" and a `body/sm` sub-line.
+- After 2500ms, loading fades out and reveal fades in (480ms each, `Easing.bezier(0, 0, 0, 1)`).
+- Reveal: centered `CapsLabel` eyebrow "Your color", serif `display/lg` headline "You're a *Soft Autumn*" (rust italic on season display name), centered `body/md` description (max-width 340), then a horizontal `ScrollView` of 8 circular 56px swatches (radius=width/2, hairline `border/light` stroke).
+- "What this means" block under the swatches: `CapsLabel size="sm"` + `body/md` body.
+- Footer: primary "Looks right" + tertiary "Let me adjust". "Let me adjust" stubs an Alert (real adjustment screen lands in chunk 9). "Looks right" marks screen 7 complete and lands on `/(tabs)` (chunk 6c's figure baseline replaces this terminal transition).
+- Resolution order for the analysis result: stored `colorSeason`+`colorPalette` → `analyzeFromUri(facePhotoUri)` → `getDefaultAnalysis()` (Autumn fallback for production skip paths).
+
+**Supporting modules** (added in 6b)
+
+- `/lib/photoStorage.ts` — `savePhoto`, `deletePhoto`, `getPhotoUri`. Uses the SDK 54 `File`/`Directory`/`Paths` API (legacy `FileSystem.documentDirectory` is not used).
+- `/lib/colorAnalysisMock.ts` — deterministic URI-hash → season. Exports `analyzeFromUri`, `getDefaultAnalysis`, `seasonDisplayName` (prefixes "Soft" for Summer/Autumn, "Bright" for Spring/Winter). Each season carries an 8-color palette.
+- `/lib/stores/onboardingStore.ts` — extended with `facePhotoUri`, `bodyPhotoUri`, `colorSeason`, `colorPalette`, `hasSkippedPhotos`, plus setters. All fields included in `INITIAL_FIELDS` so `resetOnboarding()` covers them.
+- `/assets/onboarding-placeholders/{face,body}-placeholder.jpg` — bundled JPEGs that satisfy Metro's `require()` and let the `__DEV__` skip path proceed without a real photo. Replace manually with real portraits before any user-facing build.
 
 ---
 

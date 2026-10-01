@@ -1,0 +1,54 @@
+--- a/app/(tabs)/_layout.tsx
++++ b/app/(tabs)/_layout.tsx
+@@ -1,7 +1,8 @@
+ import { Tabs } from 'expo-router';
+ import { Calendar, Heart, Shirt, Sun, UserCircle } from 'lucide-react-native';
+ import type { ComponentType } from 'react';
+-import { Platform, StyleSheet, Text, View } from 'react-native';
++import { StyleSheet, Text, View } from 'react-native';
++import { useSafeAreaInsets } from 'react-native-safe-area-context';
+ 
+ import { IrisFAB } from '@/components/IrisFAB';
+ import { theme } from '@/constants/theme';
+@@ -48,6 +49,13 @@
+   );
+ 
+ export default function TabsLayout() {
++  // QA FIX EXPERIMENT #3: the previous fixed height (64 + 12/24) plus an extra
++  // 8px bar paddingTop and 8px item paddingVertical left only ~41px for a
++  // 24px icon + 4px gap + 16px label (48px needed), so the label Text was
++  // flex-shrunk to 9px and clipped. DESIGN_SYSTEM §7.6 is "64px + safe area"
++  // — so size the bar from the live bottom inset and drop the extra paddings
++  // (react-navigation already applies its own 5px item padding).
++  const insets = useSafeAreaInsets();
+   return (
+     <View style={styles.root}>
+       <Tabs
+@@ -55,8 +63,10 @@
+           headerShown: false,
+           tabBarActiveTintColor: theme.color.ink.primary,
+           tabBarInactiveTintColor: theme.color.ink.tertiary,
+-          tabBarStyle: styles.bar,
+-          tabBarItemStyle: styles.item,
++          tabBarStyle: [
++            styles.bar,
++            { height: theme.layout.tabBarHeight + insets.bottom },
++          ],
+           tabBarLabelPosition: 'below-icon',
+           sceneStyle: { backgroundColor: theme.color.bg.primary },
+         }}
+@@ -100,14 +110,9 @@
+     backgroundColor: theme.color.bg.primary,
+     borderTopColor: theme.color.border.light,
+     borderTopWidth: StyleSheet.hairlineWidth,
+-    height: theme.layout.tabBarHeight + (Platform.OS === 'ios' ? 24 : 12),
+-    paddingTop: theme.space[2],
+     elevation: 0,
+     shadowOpacity: 0,
+   },
+-  item: {
+-    paddingVertical: theme.space[2],
+-  },
+   label: {
+     fontSize: theme.font.label.sm.fontSize,
+     lineHeight: theme.font.label.sm.lineHeight,

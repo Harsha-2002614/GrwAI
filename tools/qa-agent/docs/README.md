@@ -1,0 +1,3 @@
+- `GRWAI-Product-QA-Report-2026-09-29.html` — the delivered report (self-contained, evidence embedded).
+- `grwai-onboarding-flow.html` — the onboarding design mockup used as a design source (no Figma existed for this repo).
+- Regenerate the report from the recorded run: `node bin/qa-agent.js report --run 2026-09-29` → `runs/2026-09-29/report.html`.

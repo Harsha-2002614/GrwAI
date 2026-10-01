@@ -18,10 +18,12 @@ interface CardProps {
   /** Override the default padding (e.g., 0 if image bleeds to edge) */
   padding?: number;
   onPress?: (e: GestureResponderEvent) => void;
+  /** Accessible name for a pressable card (announced instead of its contents). */
+  accessibilityLabel?: string;
   style?: StyleProp<ViewStyle>;
 }
 
-export function Card({ variant = 'default', children, padding, onPress, style }: CardProps) {
+export function Card({ variant = 'default', children, padding, onPress, accessibilityLabel, style }: CardProps) {
   const containerStyle = [
     styles.base,
     variantStyle(variant),
@@ -38,6 +40,7 @@ export function Card({ variant = 'default', children, padding, onPress, style }:
           pressed && styles.pressed,
         ]}
         accessibilityRole="button"
+        accessibilityLabel={accessibilityLabel}
       >
         {children}
       </Pressable>

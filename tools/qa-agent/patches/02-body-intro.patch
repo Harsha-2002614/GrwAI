@@ -1,0 +1,19 @@
+--- a/app/onboarding/body-intro.tsx
++++ b/app/onboarding/body-intro.tsx
+@@ -30,8 +30,14 @@
+ 
+   const handleSkip = () => {
+     if (__DEV__) {
+-      const placeholder = RNImage.resolveAssetSource(BODY_PLACEHOLDER_ASSET);
+-      setBodyPhotoUri(placeholder.uri);
++      // QA FIX EXPERIMENT #2: Image.resolveAssetSource is native-only (not
++      // implemented by react-native-web), so guard it — on web the bundled
++      // asset module already carries a `uri`.
++      const placeholder =
++        typeof RNImage.resolveAssetSource === 'function'
++          ? RNImage.resolveAssetSource(BODY_PLACEHOLDER_ASSET)
++          : (BODY_PLACEHOLDER_ASSET as { uri?: string } | null);
++      setBodyPhotoUri(placeholder?.uri ?? null);
+     } else {
+       setSkippedPhotos(true);
+     }

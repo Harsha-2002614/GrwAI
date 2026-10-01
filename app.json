@@ -44,12 +44,6 @@
         {
           "cameraPermission": "GRWAI uses your camera to capture face and body photos so Iris can render outfits on you."
         }
-      ],
-      [
-        "expo-image-picker",
-        {
-          "photosPermission": "GRWAI uses your photo library to import existing photos for figure setup and closet pieces."
-        }
       ]
     ],
     "experiments": {

@@ -1,0 +1,69 @@
+{
+  "$comment": "Project config for the QA agent. Everything app-specific lives here; the agent code is generic.",
+  "project": {
+    "name": "GRWAI — Get Ready with AI",
+    "repoDir": "../..",
+    "startCommand": "CI=1 EXPO_NO_TELEMETRY=1 BROWSER=none npx expo start --web --port 8081",
+    "baseUrl": "http://localhost:8081",
+    "readyTimeoutMs": 300000,
+    "devToastText": "Bundling...",
+    "specs": ["../../DESIGN_SYSTEM.md", "../../BUILD_SPEC.md", "docs/grwai-onboarding-flow.html"]
+  },
+  "storage": {
+    "$comment": "How to put the app into a known state before a page loads (persisted zustand store in localStorage).",
+    "key": "@grwai/onboarding",
+    "seeds": {
+      "fresh": null,
+      "completed": { "state": { "hasCompletedOnboarding": true, "hasSkippedOnboarding": false, "currentScreenIndex": 13, "email": null, "firstName": "Harsha", "facePhotoUri": null, "bodyPhotoUri": null, "hasSkippedPhotos": false, "colorSeason": null, "colorPalette": null, "lifeContext": null, "fitPreference": null, "bodyShape": null, "heightInches": null, "styleSwipeChoices": [], "tasteArchetype": null }, "version": 0 },
+      "skipped": { "state": { "hasCompletedOnboarding": false, "hasSkippedOnboarding": true, "currentScreenIndex": 0, "email": null, "firstName": null, "facePhotoUri": null, "bodyPhotoUri": null, "hasSkippedPhotos": false, "colorSeason": null, "colorPalette": null, "lifeContext": null, "fitPreference": null, "bodyShape": null, "heightInches": null, "styleSwipeChoices": [], "tasteArchetype": null }, "version": 0 }
+    }
+  },
+  "tokens": {
+    "$comment": "Design tokens the deterministic checks validate against (from constants/theme.ts / DESIGN_SYSTEM.md).",
+    "colors": {
+      "#ffffff": "bg/primary|ink/inverse", "#faf7f2": "bg/warm", "#f4f2ee": "bg/subtle",
+      "#0f0f0f": "ink/primary", "#6b6b6b": "ink/secondary", "#767676": "ink/tertiary",
+      "#c75d3a": "accent/rust", "#b85432": "accent/rust-deep", "#f4d9cc": "accent/rust-soft",
+      "#2f7a4d": "success/base", "#e5f0e5": "success/soft", "#b8862f": "warning/base", "#f4ecd9": "warning/soft",
+      "#b83a3a": "error/base", "#f4d9d9": "error/soft", "#eae7e1": "border/light", "#d6d2cb": "border/mid"
+    },
+    "radii": [0, 4, 8, 12, 16, 24, 9999],
+    "fonts": ["Inter_400Regular", "Inter_500Medium", "Inter_600SemiBold", "PlayfairDisplay_400Regular", "PlayfairDisplay_400Regular_Italic"],
+    "minTapTarget": 44
+  },
+  "routes": [
+    { "seed": "completed", "paths": ["/", "/events", "/closet", "/saved", "/you", "/stylist", "/piece/p1", "/try-on/p1", "/moment-look/m1", "/moment-composer", "/profile-photos", "/always-honor", "/closet-camera", "/closet-tag", "/design-test", "/welcome-preview", "/youcam-test", "/outfit/soft-power", "/does-not-exist"] },
+    { "seed": "fresh", "paths": ["/onboarding/welcome", "/onboarding/account", "/onboarding/name", "/onboarding/face-intro", "/onboarding/face-capture", "/onboarding/body-intro", "/onboarding/body-capture", "/onboarding/color-analysis", "/onboarding/life-context", "/onboarding/figure-baseline", "/onboarding/style-swipes-1", "/onboarding/style-swipes-2", "/onboarding/taste-reveal", "/onboarding/first-look-preview"], "settleMs": 2400 },
+    { "seed": "fresh", "paths": ["/events"], "tag": "redirect-check" }
+  ],
+  "viewports": [
+    { "name": "375", "width": 375, "height": 667, "mobile": true },
+    { "name": "390", "width": 390, "height": 844, "mobile": true },
+    { "name": "768", "width": 768, "height": 1024, "mobile": true },
+    { "name": "1024", "width": 1024, "height": 768, "mobile": false },
+    { "name": "1440", "width": 1440, "height": 900, "mobile": false }
+  ],
+  "responsiveScreens": [
+    { "route": "/", "seed": "completed", "tag": "today" },
+    { "route": "/events", "seed": "completed", "tag": "events", "preClick": "Toggle mock events" },
+    { "route": "/closet", "seed": "completed", "tag": "closet" },
+    { "route": "/you", "seed": "completed", "tag": "you" },
+    { "route": "/stylist", "seed": "completed", "tag": "stylist" },
+    { "route": "/closet-tag", "seed": "completed", "tag": "closet-tag" },
+    { "route": "/onboarding/welcome", "seed": "fresh", "tag": "onb-welcome", "settleMs": 3200 },
+    { "route": "/onboarding/account", "seed": "fresh", "tag": "onb-account" },
+    { "route": "/onboarding/name", "seed": "fresh", "tag": "onb-name" },
+    { "route": "/onboarding/color-analysis", "seed": "fresh", "tag": "onb-color", "settleMs": 4200 },
+    { "route": "/onboarding/style-swipes-1", "seed": "fresh", "tag": "onb-swipes" },
+    { "route": "/onboarding/first-look-preview", "seed": "fresh", "tag": "onb-firstlook" }
+  ],
+  "journeys": "src/journeys/grwai.js",
+  "llm": {
+    "$comment": "Provider is read from env first (QA_LLM_PROVIDER, QA_LLM_MODEL, QA_LLM_BASE_URL, QA_LLM_API_KEY). Defaults: Ollama on localhost with an open-source model. Use provider 'none' for a fully deterministic run.",
+    "provider": "ollama",
+    "model": "qwen2.5-coder:14b",
+    "baseUrl": "http://localhost:11434",
+    "temperature": 0.2,
+    "maxFindingsToExplain": 40
+  }
+}

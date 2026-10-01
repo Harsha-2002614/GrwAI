@@ -345,7 +345,7 @@ export default function DesignTestScreen() {
             <EmptyState
               icon={Calendar}
               headline="No moments yet."
-              subhead="Connect your calendar or add an event by hand. Iris styles the rest."
+              subhead="Connect your calendar or add an event manually. Iris styles the rest."
               ctaLabel="Add a moment"
               onCtaPress={() => {}}
             />
@@ -446,7 +446,7 @@ export default function DesignTestScreen() {
 
       <Sheet visible={sheetOpen} onClose={() => setSheetOpen(false)}>
         <Text style={[display.md, display.base, { marginBottom: theme.space[4] }]}>
-          What's the <Italic tone="rust">moment</Italic>?
+          What&apos;s the <Italic tone="rust">moment</Italic>?
         </Text>
         <Text style={[styles.bodyMd, { marginBottom: theme.space[6] }]}>
           A demo sheet. Tap the backdrop to dismiss, or use the close button below.

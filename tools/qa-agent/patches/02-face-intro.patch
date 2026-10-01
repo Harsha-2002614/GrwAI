@@ -1,0 +1,19 @@
+--- a/app/onboarding/face-intro.tsx
++++ b/app/onboarding/face-intro.tsx
+@@ -33,8 +33,14 @@
+   const handleSkip = () => {
+     if (__DEV__) {
+       // Bundled placeholder lets QA proceed through the rest of onboarding.
+-      const placeholder = RNImage.resolveAssetSource(FACE_PLACEHOLDER_ASSET);
+-      setFacePhotoUri(placeholder.uri);
++      // QA FIX EXPERIMENT #2: Image.resolveAssetSource is native-only (not
++      // implemented by react-native-web), so guard it — on web the bundled
++      // asset module already carries a `uri`.
++      const placeholder =
++        typeof RNImage.resolveAssetSource === 'function'
++          ? RNImage.resolveAssetSource(FACE_PLACEHOLDER_ASSET)
++          : (FACE_PLACEHOLDER_ASSET as { uri?: string } | null);
++      setFacePhotoUri(placeholder?.uri ?? null);
+     } else {
+       // Production: leave facePhotoUri null and flag the skip. Downstream
+       // screens fall back to illustration mode + a "Add photos" banner.

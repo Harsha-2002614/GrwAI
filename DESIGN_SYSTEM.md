@@ -1,12 +1,16 @@
 # GRWAI — Design System
 
-**Version 1.4 · Single source of truth for Get Ready with AI**
+**Version 1.8 · Single source of truth for Get Ready with AI**
 
 This file defines every visual and interaction primitive used in the app. If a value is not in this file, it does not exist in the product. When in doubt, restraint wins.
 
 **Reference DNA:** Airbnb's spatial generosity and component clarity, fused with the editorial voice of a print magazine (Kinfolk, The Gentlewoman, Cereal). Soft, confident, quiet.
 
 **Changelog:**
+- `v1.8` — Accessibility pass from the 2026-09-29 product QA. `ink/tertiary` darkens `#8A8A8A → #767676` (4.5:1 on white, so placeholder/meta text is AA everywhere). Caps eyebrows in rust use `accent/rust-deep` (§7.10) and the `fastest` badge moves to `ink/primary` (§7.9) — rust on white (and white on rust) is 4.2:1, under AA for small text. §12 gains the enforced 44pt onboarding header targets and the persisted Save state (§7.13): a saved look now survives app restarts and is the single source for the Saved tab.
+- `v1.7` — New `ProgressDots` component (§7.17) plus an onboarding-screen layout pattern (§7.18) for the chunk 6a routing shell + first 4 onboarding screens. Soft-gate routing model documented in BUILD_SPEC §16.
+- `v1.6` — New `PieceCard` component (§7.16) for the Closet 2-column grid: 1:1 gradient + emoji placeholder, top-right SaveButton, optional rust "ON YOU · N" badge when the piece appears in 2+ past outfits. Same placeholder-now / photoreal-later trajectory as EventMoodHeader.
+- `v1.5` — New `EventMoodHeader` component (§7.15) defines the 16:9 gradient placeholder that sits atop every event card; swaps for a photoreal scene image in chunk 7 with no card-geometry change.
 - `v1.4` — Saved tab replaces Stylist (Stylist now reached via IrisFAB, not tab nav). Avatar initials use Inter Medium upright at all sizes (Playfair was rendering with awkward slant on iOS). Emoji rendering in chips uses lineHeight 18 not 1 (top-clipping fix). Tab bar Heart icon stays stroke-only — never rust-filled — preserving rust as the unique signal for the SaveButton action. New IrisFAB component (§7.12.1) introduces a fixed bottom-right floating button as the entry point for the Iris stylist.
 - `v1.3` — Dual-icon rule: emoji for occasion/condition chips (events, weather), Lucide for actions/navigation. Variation selector required on emoji.
 - `v1.2` — Anti-overlap recipe for chips/buttons. Avatar component fully spec'd at 5 sizes with photo, initials, status dot, counter variants. Layout rules for avatar in flex containers.
@@ -51,7 +55,7 @@ Surface
 Ink (text)
   ink/primary         #0F0F0F        Headlines, primary text, primary buttons
   ink/secondary       #6B6B6B        Body, metadata, supporting copy
-  ink/tertiary        #8A8A8A        Placeholders, light meta (AA-compliant 4.5:1)
+  ink/tertiary        #767676        Placeholders, light meta (4.5:1 on bg/primary — AA)  ← v1.8 (was #8A8A8A, 3.2:1)
   ink/inverse         #FFFFFF        Text on dark surfaces
 
 Accent
@@ -303,7 +307,10 @@ Actions
   camera, image, paperclip, mic, send, share,
   heart (canonical save icon — see 7.13), 
   message-circle (FAB — opens Iris chat),
-  refresh-ccw, edit-3, trash-2, plus, search, filter, sliders-horizontal
+  refresh-ccw (also: camera flip — iOS-style circular two-arrows),
+  edit-3, trash-2, plus, search, filter, sliders-horizontal,
+  zap / zap-off (camera flash on/off),
+  maximize-2 / minimize-2 (camera digital zoom in/out)
 
 Metadata
   map-pin, clock, bell, bag (shopping-bag), briefcase, 
@@ -613,7 +620,7 @@ Variants:
   styled        success/soft bg + success/base text + ✓ icon
   needs-prep    warning/soft bg + warning/base text
   most-important ink/primary bg + ink/inverse text + ★ icon
-  fastest       accent/rust bg + ink/inverse text
+  fastest       ink/primary bg + ink/inverse text          ← v1.8 (was accent/rust: white-on-rust is 4.2:1 at caps/xs)
   on-you        accent/rust bg + ink/inverse text
   illustration  bg/subtle bg + ink/secondary text
   fit-score     overlay/light bg + ink/primary text (used on photos)
@@ -626,7 +633,8 @@ Critical to brand voice. Use generously.
 ```
 Component:    <CapsLabel>
 Typography:   caps/md or caps/sm
-Color:        ink/secondary (default), accent/rust (time labels), 
+Color:        ink/secondary (default), accent/rust-deep (time labels — v1.8,
+              rust-deep #B85432 is 4.8:1 on white; plain rust is 4.2:1),
               ink/primary (high emphasis)
 Spacing:      8-12px above associated headline, never inline
 ```
@@ -835,6 +843,8 @@ Saved items go to:
 
 Optimistic UI: tap → instantly toggle visual state → write to store → sync to backend in background. Never make the user wait on the heart.
 
+v1.8: the store is `useSavedStore` (`lib/stores/savedStore.ts`, persisted under `@grwai/saved`). Every heart — Today carousel, outfit detail, first-look preview, Saved tab — reads and writes the same `savedOutfitIds`, so state survives navigation and app restarts, and the Saved tab is derived from it rather than kept locally.
+
 **Accessibility:**
 
 ```
@@ -861,6 +871,125 @@ Typography:     caps/sm ink/primary
 Position:       top-left of image, 16px from edges
 Backdrop blur:  20px (iOS) — gives it that premium glass feel
 ```
+
+### 7.15 EventMoodHeader
+
+Placeholder image-strip that sits at the top of every `EventCard`. Reads as a 16:9 gradient block keyed by event category, with a centered caps label, top-left Lucide icon, and a bottom-right `ILLUSTRATION` mark. Chunk 7 (photoreal pipeline) swaps the gradient+label for a generated 16:9 scene image with zero refactor — the Card body below remains identical.
+
+(Section number note: this lives at §7.15 rather than §7.13 because §7.13 and §7.14 were already occupied by Save Action and Tag respectively when the chunk-4 spec landed.)
+
+**Component:** `<EventMoodHeader category contextLabel />`
+
+**Visual:**
+```
+Aspect ratio:   16:9
+Radius:         clipped by parent Card's radius/lg — the header itself sets none
+Bg:             LinearGradient (top → bottom-right) keyed by category:
+  work          ['#E8EDF2', '#C9D4DF']    cool gray-blue
+  dinner        ['#F5E6D3', '#E8C9A0']    warm amber
+  wedding       ['#FAF6F0', '#EBE0D0']    soft cream
+  trip          ['#D9E4ED', '#B8CADB']    dusty sky
+  party         ['#F5D5CC', '#E8B4A8']    warm coral
+  date          ['#EFD9D9', '#DFB5B5']    muted rose
+  brunch        ['#F5DCC2', '#E8C19F']    peach
+
+Centered caps label:
+  Format:       "{CATEGORY} · {CONTEXT_LABEL}"  e.g., "WEDDING · VINEYARD"
+  Typography:   caps token (Inter Semibold, 11px, letterSpacing 0.88), upper
+  Color:        ink/primary at 60% opacity (rgba — gradient breathes through)
+
+Lucide icon, top-left:
+  Position:     16px from top, 16px from left
+  Size:         18
+  Stroke:       1.75
+  Color:        ink/primary at 50% opacity
+  Mapping:
+    work        Briefcase
+    dinner      UtensilsCrossed
+    wedding     HeartHandshake
+    trip        Plane
+    party       PartyPopper
+    date        Heart
+    brunch      Coffee
+
+"ILLUSTRATION" mark, bottom-right:
+  Position:     12px from bottom, 12px from right
+  Typography:   Inter Semibold, 9px, letterSpacing 1.2, upper
+  Color:        ink/primary at 40% opacity
+  Bg:           none — text floats directly on the gradient
+```
+
+**Why a placeholder block, not a Skeleton:** Empty 16:9 areas read as "loading." A gradient with a category cue reads as "intentional placeholder, real image coming." It also locks the layout — when photoreal images land, no card geometry changes.
+
+### 7.16 PieceCard
+
+Square tile used in the Closet 2-column grid. Same placeholder-now / photoreal-later philosophy as `EventMoodHeader` (§7.15) — the gradient + emoji combo holds the layout until the chunk-7 photoreal pipeline lands.
+
+**Component:** `<PieceCard piece size onPress onFavoriteToggle />`
+
+**Visual:**
+```
+Aspect ratio:   1:1 (square)
+Radius:         radius/lg (16px), all four corners
+Bg:             LinearGradient from piece.imageColor → piece.imageAccent,
+                top-left to bottom-right
+Centered glyph: emoji from piece.emoji (single grapheme + U+FE0F selector)
+                Size:        48px (md) · 36px (sm)
+                lineHeight:  matches fontSize
+                includeFontPadding: false, marginTop: -1 (optical centering)
+
+Floating SaveButton (top-right):
+  Position:     12px from top, 12px from right
+  Size:         sm (32px tap, 18px icon) per §7.13
+  onPhoto:      true — uses overlay/light backdrop circle
+
+Optional "ON YOU · N" badge (top-left):
+  Condition:    piece.onYouCount ≥ 2
+  Bg:           accent/rust
+  Text:         caps/xs ink/inverse, "ON YOU · {N}"
+  Padding:      4px / 8px
+  Radius:       full
+
+Bottom caption strip:
+  Bg:           LinearGradient transparent → rgba(15,15,15,0.55),
+                bottom 40% of card, ramp begins at 60%
+  Padding:      12px on all caption sides
+  Typography:   piece.name in body/sm sansMedium ink/inverse, single-line truncate
+
+Press state:    scale 0.98, 150ms
+```
+
+**Why a gradient + emoji placeholder:** A purely empty bg tile reads as "loading," same as the event-card 16:9 case. A category-keyed gradient with a representative emoji reads as "deliberate placeholder, real photo coming" — and locks the tile's geometry so the chunk-7 swap to real photography is zero-refactor.
+
+**Why the "ON YOU · N" badge only at N ≥ 2:** A piece worn once is just a piece. A piece worn twice or more is establishing itself as part of the user's rotation — that's information worth surfacing as the user scrolls their closet. Below the threshold the badge would dilute its own signal.
+
+### 7.17 ProgressDots
+
+Minimal step indicator used in the onboarding header (per BUILD_SPEC §16.2). Twelve 6px dots in a row with 6px gaps, no labels.
+
+**Component:** `<ProgressDots total current />`
+
+**States:**
+```
+i === current   ink/primary at 100% opacity   (active)
+i  <  current   ink/primary at 40% opacity    (completed)
+i  >  current   border/light                  (upcoming)
+```
+
+**Why three states, not two:** the eye needs to see progress accumulating *behind* the current step, not just the current step alone. Without the dimmed completed state, the indicator reads as "current position" rather than "current position + how far I've come."
+
+### 7.18 Onboarding screen pattern
+
+The composition rule for `/app/onboarding/*` screens:
+
+- Shared `_layout.tsx` header (back · ProgressDots · skip) — fixed at the top
+- Body scrolls beneath the header, top-aligned (NOT vertically centered)
+- Caps eyebrow → display headline (italic word in `accent/rust`) → content
+- Sticky bottom CTA on every screen that collects data (primary `Button`, `size="lg"`, `fullWidth`, optional disabled state until validation passes)
+- 24px horizontal screen padding throughout, matching the rest of the app
+- `KeyboardAvoidingView` wrapping any screen with a text input
+
+This pattern keeps the eye climbing top-to-bottom (eyebrow → headline → fields → CTA) without breaking the established `display/lg` + italic rhythm used on Today, Events, Closet hero blocks.
 
 ---
 
@@ -935,14 +1064,14 @@ Primary CTA:        button/primary md
 TODAY (no calendar connected, no manual events)
   Icon:        sun
   Headline:    "Today is a blank page."
-  Subhead:     "Connect your calendar or add a moment by hand. 
+  Subhead:     "Connect your calendar or add a moment manually. 
                 Iris will style what's on it."
   CTA:         "Add a moment"
 
 EVENTS (no events scheduled)
   Icon:        calendar
   Headline:    "No moments yet."
-  Subhead:     "Connect your calendar or add an event by hand. 
+  Subhead:     "Connect your calendar or add an event manually. 
                 Iris styles the rest."
   CTA:         "Add a moment"
 
@@ -1141,8 +1270,8 @@ USER-FACING SYSTEM
 
 Non-negotiable requirements:
 
-- **Contrast**: minimum WCAG AA on all text. ink/secondary on bg/primary = 4.7:1 ✓. ink/tertiary is 3.2:1 — only allowed for non-essential metadata.
-- **Tap targets**: minimum 44×44pt (Apple) / 48×48dp (Android). List rows naturally exceed this.
+- **Contrast**: minimum WCAG AA on all text. ink/secondary on bg/primary = 4.7:1 ✓. ink/tertiary (#767676, v1.8) = 4.5:1 ✓ — placeholders and meta text no longer need an exception. Rust on white is reserved for ≥17px italic emphasis; small caps in rust use rust-deep (§7.10).
+- **Tap targets**: minimum 44×44pt (Apple) / 48×48dp (Android). List rows naturally exceed this. Onboarding header controls (back chevron, Skip) are laid out at 44×44 with negative margins so the visual weight stays light (v1.8).
 - **Dynamic type**: all body and label sizes scale with system text size (Inter is metrically calibrated). Display sizes scale up to 130% then cap to preserve layout.
 - **Reduced motion**: replace all spring/translate animations with simple opacity fades.
 - **VoiceOver**: every interactive element has a clear accessibilityLabel. Photoreal renders have alt text generated server-side: "You wearing [outfit name] in [scene context]."

@@ -52,7 +52,8 @@ const variantSpec: Record<Variant, VariantSpec> = {
     icon: Star,
   },
   fastest: {
-    bg: theme.color.accent.rust,
+    // DS §2.2: rust never appears on "FASTEST" badges — ink/primary instead (v1.8 reconciles §7.9).
+    bg: theme.color.ink.primary,
     fg: theme.color.ink.inverse,
     defaultLabel: 'Fastest',
   },
